@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost" style={{ color: "#fff" }}>
+        <button className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -20,12 +20,10 @@ const NavBar = () => {
         </button>
       </div>
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl" style={{ color: "#fff" }}>
-          Home
-        </a>
+        <a className="btn btn-ghost text-xl">Home</a>
       </div>
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost" style={{ color: "#fff" }}>
+        <button className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

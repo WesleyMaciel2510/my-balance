@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useSharedState } from "../global/sharedStates";
 import NavBar from "../components/navbar";
 import AccountCard from "../components/accountCard";
-import "./styles.css";
+import TableInfo from "../components/infoTable";
 
 const DashboardPage = () => {
+  const { checkingAccount, savingAccount } = useSharedState();
   return (
-    <div>
+    <div style={{ flex: 1 }}>
       <NavBar />
       <div
         style={{
@@ -14,11 +15,27 @@ const DashboardPage = () => {
           flexDirection: "row",
         }}
       >
-        <div style={{ flex: 1, paddingLeft: 200 }}>
-          <AccountCard type="Checking" amount={2000.0} />
+        <div style={{ flex: 1, paddingLeft: 220 }}>
+          <AccountCard
+            type={checkingAccount.accountType}
+            amount={checkingAccount.income - checkingAccount.withdraw}
+          />
         </div>
-        <div style={{ flex: 1 }}>
-          <AccountCard type="Saving" amount={10000.0} />
+        <div style={{ flex: 1, paddingRight: 100 }}>
+          <AccountCard
+            type={savingAccount.accountType}
+            amount={savingAccount.income - savingAccount.withdraw}
+          />
+        </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        <div style={{ paddingLeft: 200, paddingRight: 200, paddingTop: 50 }}>
+          <TableInfo />
         </div>
       </div>
     </div>
