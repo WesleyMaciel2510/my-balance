@@ -13,9 +13,7 @@ const AccountCard: React.FC<AccountCardProps> = ({ type, amount }) => {
       <div
         className="card w-96 glass"
         style={{
-          backgroundColor: isHovered ? "blue" : "#20f559",
-          borderWidth: isHovered ? 2 : 0,
-          borderColor: "#000",
+          backgroundColor: isHovered ? "#09b531" : "#20f559",
           borderRadius: 12,
         }}
         onMouseEnter={() => setIsHovered(true)}

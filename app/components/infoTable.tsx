@@ -1,15 +1,24 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useSharedState } from "../global/sharedStates";
 
 const TableInfo = () => {
-  const {
-    checkingAccount,
-    setCheckingAccount,
-    savingAccount,
-    setSavingAccount,
-  } = useSharedState();
-  const handleIncomeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    /*  setIncome(event.target.valueAsNumber); */
+  const { accounts, setAccounts } = useSharedState();
+  const [mockData, setMockData] = useState({
+    accountType: "",
+    accountNumber: "",
+    bankName: "",
+    income: 0,
+    withdraw: 0,
+    balance: 0,
+  });
+
+  const handleChange = (e: any, key: any) => {
+    const newValue = e.target.value;
+    setMockData((prevData) => ({
+      ...prevData,
+      [key]: newValue,
+    }));
+    console.log("mockData = ", mockData);
   };
   return (
     <div className="overflow-x-auto" style={{ borderRadius: 8 }}>
@@ -26,65 +35,66 @@ const TableInfo = () => {
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr>
-            <th>{checkingAccount.accountType}</th>
-            <th>{checkingAccount.accountNumber}</th>
-            <th>{checkingAccount.bankName}</th>
-            <th>{checkingAccount.income}</th>
-            <th>{checkingAccount.withdraw}</th>
-            <th>{checkingAccount.income - checkingAccount.withdraw}</th>
-          </tr>
-          {/* row 2 */}
-          <tr>
-            <th>{savingAccount.accountType}</th>
-            <th>{savingAccount.accountNumber}</th>
-            <th>{savingAccount.bankName}</th>
-            <th>{savingAccount.income}</th>
-            <th>{savingAccount.withdraw}</th>
-            <th>{savingAccount.income - savingAccount.withdraw}</th>
-
-            {/* <th>{savingAccount.balance}</th> */}
-          </tr>
-          {/* row 3 */}
+          {accounts.map((account, index) => (
+            <tr
+              key={index}
+              style={{ justifyContent: "center", alignContent: "center" }}
+            >
+              <th>{account.accountType}</th>
+              <th>{account.accountNumber}</th>
+              <th>{account.bankName}</th>
+              <th>{account.income}</th>
+              <th>{account.withdraw}</th>
+              <th>{account.income - account.withdraw}</th>
+            </tr>
+          ))}
           <tr>
             <td>
               <input
                 type="text"
-                placeholder=""
-                className="input input-ghost w-full max-w-xs"
+                placeholder="Type here"
+                className="input input-ghost input-sm w-full max-w-"
+                value={mockData.accountType}
+                onChange={(e) => handleChange(e, "accountType")}
               />
             </td>
             <td>
               <input
                 type="text"
-                placeholder=""
-                className="input input-ghost w-full max-w-xs"
+                placeholder="Type here"
+                className="input input-ghost input-sm w-full max-w-"
+                value={mockData.accountNumber}
+                onChange={(e) => handleChange(e, "accountNumber")}
               />
             </td>
             <td>
               <input
                 type="text"
-                placeholder=""
-                className="input input-ghost w-full max-w-xs"
+                placeholder="Type here"
+                className="input input-ghost input-sm w-full max-w-"
+                value={mockData.bankName}
+                onChange={(e) => handleChange(e, "bankName")}
               />
             </td>
             <td>
               <input
-                type="number"
-                placeholder=""
-                className="input input-ghost w-full max-w-xs"
-                onChange={handleIncomeInput}
+                type="text"
+                placeholder="Type here"
+                className="input input-ghost input-sm w-full max-w-"
+                value={mockData.income}
+                onChange={(e) => handleChange(e, "income")}
               />
             </td>
             <td>
               <input
-                type="number"
-                placeholder=""
-                className="input input-ghost w-full max-w-xs"
+                type="text"
+                placeholder="Type here"
+                className="input input-ghost input-sm w-full max-w-"
+                value={mockData.withdraw}
+                onChange={(e) => handleChange(e, "withdraw")}
               />
             </td>
-            <td></td>
+            <td>{mockData.income - mockData.withdraw}</td>
           </tr>
         </tbody>
       </table>
