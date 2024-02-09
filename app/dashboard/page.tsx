@@ -28,9 +28,6 @@ const DashboardPage = () => {
   const updateBalances = (side: string) => {
     console.log("side = ", side);
     const totalBalance = accounts[0].balance + accounts[1].balance;
-    /* side === "left"
-        ? accounts[0].balance + accounts[1].balance
-        : accounts[1].balance + accounts[0].balance; */
     let updatedAccounts: SetStateAction<
       {
         accountType: string;

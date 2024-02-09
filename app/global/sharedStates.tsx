@@ -9,7 +9,7 @@ export const useStateVariables = () => {
       bankName: "Quality Control",
       income: 6000,
       withdraw: 4000,
-      balance: 8000 - 3000,
+      balance: 6000 - 4000,
     },
     {
       accountType: "Saving Account",
@@ -17,7 +17,7 @@ export const useStateVariables = () => {
       bankName: "New Digital",
       income: 10000,
       withdraw: 2000,
-      balance: 12000 - 2000,
+      balance: 10000 - 2000,
     },
   ]);
   return {

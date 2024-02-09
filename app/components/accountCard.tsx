@@ -20,7 +20,7 @@ const AccountCard: React.FC<AccountCardProps> = ({ type, amount }) => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="card-body">
-          <h2 className="card-title">{type} Account</h2>
+          <h2 className="card-title">{type}</h2>
           <h2 className="card-title"> $ {amount}</h2>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <div style={{ flex: 1 }}>
