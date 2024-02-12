@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { useSharedState } from "../global/sharedStates";
+import { useSharedState } from "../app/global/sharedStates";
 
 const TableInfo = () => {
   const { accounts, setAccounts } = useSharedState();
