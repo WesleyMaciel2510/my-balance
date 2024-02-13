@@ -93,7 +93,7 @@ export default function Home() {
               </div>
               <div className="flex justify-between">
                 <Link href="/sign-up">Sign Up</Link>
-                <Link style={{ textAlign: 'right' }} href="/dashboard">
+                <Link style={{ textAlign: 'right' }} href="/forgot-password">
                   Forgot My Password
                 </Link>
               </div>
