@@ -1,25 +1,30 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import LottieView from '../components/lottieView'
 import animationData from '../assets/login.json'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
   const animationData = require('../assets/login.json')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const router = useRouter()
 
   const handleSubmit = (e: any) => {
+    console.log('chamou handleSubmit')
     e.preventDefault()
 
     if (username.trim() === '' || password.trim() === '') {
       // Handle empty fields (display error message or highlight fields)
       alert('Please fill in both username and password.')
       return
+    } else {
+      console.log('entrou no else')
+      router.push('/dashboard')
     }
 
-    ;<Link href="/dashboard">Login</Link>
     // Perform actual login logic here (e.g., API call, validation)
     /*  const isValid = login(username, password);
 
@@ -94,7 +99,8 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <button
-                  type="submit"
+                  type="button"
+                  onClick={() => router.push('/dashboard')}
                   className="inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-opacity-50"
                 >
                   Login
