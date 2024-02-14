@@ -6,18 +6,16 @@ import animationData from '../../assets/forgot.json'
 
 const ForgotPasswordPage = () => {
   const [name, setName] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [jobPosition, setJobPosition] = useState('')
+  const [email, setEmail] = useState('')
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
 
-    if (!name.trim() || !username.trim() || !password.trim()) {
+    if (!name.trim() || !email.trim()) {
       alert('Please fill out all fields before submitting.')
       return
     } else {
-      alert('Form submitted')
+      alert('E-mail Sent. Please check your e-mail to change your password.')
     }
   }
 
@@ -64,34 +62,18 @@ const ForgotPasswordPage = () => {
         </div>
         <div className="mb-4">
           <label
-            htmlFor="username"
-            className="block text-sm font-medium mb-1 text-white"
+            htmlFor="email"
+            className="block text-sm font-medium mb-1 color text-white"
           >
-            Username
+            Email
           </label>
           <input
             type="text"
-            id="username"
+            id="email"
             className="px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
-            placeholder="Enter your username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="mb-6">
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium mb-1 text-white"
-          >
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="flex justify-left">

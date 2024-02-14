@@ -1,25 +1,27 @@
 'use client'
 import React, { useState } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import LottieView from '../../components/lottieView'
 import animationData from '../../assets/register.json'
-import { sendDataToServer } from '@/services'
+import { sendDataToServer, getDataFromServer } from '@/services'
 
 const SignUpPage = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const router = useRouter()
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    if (!name.trim() || !username.trim() || !password.trim() || !email.trim()) {
+    if (!name.trim() || !password.trim() || !email.trim()) {
       alert('Please fill out all fields before submitting.')
-      return
     } else {
-      const result = await sendDataToServer(name, email, username, password)
-      result ? alert('Form submitted successfuly!') : alert('Network Error!')
+      console.log('data before sending to the server = ', name, email, password)
+      const result = await sendDataToServer(name, email, password, 3, true)
+      result
+        ? (alert('Form submitted successfuly!'), router.push('/'))
+        : alert('Network Error!')
     }
   }
 
@@ -66,38 +68,6 @@ const SignUpPage = () => {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium mb-1 text-white"
-              >
-                Username
-              </label>
-              <input
-                type="text"
-                id="username"
-                className="px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
-                placeholder="Enter your username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium mb-1 text-white"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                className="px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
             <div style={{ flex: 1 }}>
               <div className="mb-4">
                 <label
@@ -115,6 +85,22 @@ const SignUpPage = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium mb-1 text-white"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
           </div>
         </div>

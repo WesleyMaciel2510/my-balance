@@ -5,35 +5,30 @@ import Link from 'next/link'
 import LottieView from '../components/lottieView'
 import animationData from '../assets/login.json'
 import { useRouter } from 'next/navigation'
+import { setLogin } from '../services/index'
 
 export default function Home() {
   const animationData = require('../assets/login.json')
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const router = useRouter()
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     console.log('chamou handleSubmit')
     e.preventDefault()
 
-    if (username.trim() === '' || password.trim() === '') {
+    if (email.trim() === '' || password.trim() === '') {
       // Handle empty fields (display error message or highlight fields)
       alert('Please fill in both username and password.')
       return
     } else {
       console.log('entrou no else')
-      router.push('/dashboard')
+
+      const result = await setLogin(email, password)
+      result
+        ? (alert('Login Realizado.'), router.push('/dashboard'))
+        : alert('Erro no Login.')
     }
-
-    // Perform actual login logic here (e.g., API call, validation)
-    /*  const isValid = login(username, password);
-
-    if (isValid) {
-      window.location.href = '/dashboard'; // Redirect to dashboard
-    } else {
-      // Handle invalid credentials (display error message)
-      alert('Invalid username or password.');
-    } */
   }
   return (
     <main>
@@ -61,18 +56,18 @@ export default function Home() {
               </h1>
               <div className="mb-4">
                 <label
-                  htmlFor="username"
-                  className="block text-sm font-medium mb-1"
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-1 color text-white"
                 >
-                  Username
+                  Email
                 </label>
                 <input
                   type="text"
-                  id="username"
+                  id="email"
                   className="block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
-                  placeholder="Enter your username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="mb-6">
@@ -99,8 +94,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <button
-                  type="button"
-                  onClick={() => router.push('/dashboard')}
+                  type="submit"
                   className="inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-opacity-50"
                 >
                   Login
