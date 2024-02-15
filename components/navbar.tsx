@@ -1,6 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import profileImage from "../assets/profile.jpg";
+import React from 'react'
+import Image from 'next/image'
+import profileImage from '../assets/profile.jpg'
+import Link from 'next/link'
 
 const NavBar = () => {
   return (
@@ -45,13 +46,13 @@ const NavBar = () => {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <Link href="/">Logout</Link>
             </li>
           </ul>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

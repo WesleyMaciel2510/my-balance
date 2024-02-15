@@ -25,9 +25,14 @@ export default function Home() {
       console.log('entrou no else')
 
       const result = await setLogin(email, password)
-      result
-        ? (alert('Login Realizado.'), router.push('/dashboard'))
-        : alert('Erro no Login.')
+      console.log('@@@@ result', result)
+      if (result) {
+        alert('Login Realizado.'), router.push('/dashboard')
+      } else {
+        alert(
+          `Erro no Login!\n Verifique as credenciais inseridas ou redefina sua senha.`,
+        )
+      }
     }
   }
   return (
