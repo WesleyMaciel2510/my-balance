@@ -1,19 +1,19 @@
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCcMastercard } from "@fortawesome/free-brands-svg-icons";
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCcMastercard } from '@fortawesome/free-brands-svg-icons'
 
 interface AccountCardProps {
-  type: string;
-  amount: number;
+  type: string
+  amount: number
 }
 const AccountCard: React.FC<AccountCardProps> = ({ type, amount }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
   return (
     <div style={{ flex: 1 }}>
       <div
         className="card w-96 glass"
         style={{
-          backgroundColor: isHovered ? "#09b531" : "#20f559",
+          backgroundColor: isHovered ? '#09b531' : '#20f559',
           borderRadius: 12,
         }}
         onMouseEnter={() => setIsHovered(true)}
@@ -22,7 +22,7 @@ const AccountCard: React.FC<AccountCardProps> = ({ type, amount }) => {
         <div className="card-body">
           <h2 className="card-title">{type}</h2>
           <h2 className="card-title"> $ {amount}</h2>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div style={{ flex: 1 }}>
               <div style={{ flex: 1, paddingTop: 30 }}>
                 <p>444 221 224 ***</p>
@@ -40,7 +40,7 @@ const AccountCard: React.FC<AccountCardProps> = ({ type, amount }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AccountCard;
+export default AccountCard
