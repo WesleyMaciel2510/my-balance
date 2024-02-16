@@ -9,7 +9,7 @@ interface AccountCardProps {
 const AccountCard: React.FC<AccountCardProps> = ({ type, amount }) => {
   const [isHovered, setIsHovered] = useState(false)
   return (
-    <div style={{ flex: 1, padding: 10 }}>
+    <div style={{ flex: 1, padding: 20 }}>
       <div
         className="card w-96 glass"
         style={{

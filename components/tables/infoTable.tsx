@@ -12,6 +12,7 @@ const TableInfo = () => {
     balance: 0,
   })
   const [isHovered, setIsHovered] = useState(false)
+
   //==========================================================
   const handleAddAccount = () => {
     setAccounts((prevAccounts) => [...prevAccounts, mockData])
@@ -61,6 +62,7 @@ const TableInfo = () => {
         <div>
           <h2 style={{ textAlign: 'left', fontSize: 25 }}>Account Details</h2>
         </div>
+
         <div>
           <button
             className="btn text-white"

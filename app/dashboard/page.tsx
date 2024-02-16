@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
-  faCalculator,
   faHouse,
   faIdCard,
   faChartSimple,
@@ -18,10 +17,12 @@ import {
   faLock,
 } from '@fortawesome/free-solid-svg-icons'
 import IconAndLabel from '../../components/buttons/iconAndLabel'
-import { SetStateAction } from 'react'
+import { SetStateAction, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const DashboardPage = () => {
   const { accounts, setAccounts } = useSharedState()
+  const [transferAmount, setTransferAmount] = useState(0)
   const router = useRouter()
 
   const addAccount = () => {
@@ -39,7 +40,9 @@ const DashboardPage = () => {
   }
   const updateBalances = (side: string) => {
     console.log('side = ', side)
-    const totalBalance = accounts[0].balance + accounts[1].balance
+    console.log('transferAmount = ', transferAmount)
+
+    //validate 'transferAmount' to not be bigger then Total in the selected account
     let updatedAccounts: SetStateAction<
       {
         accountType: string
@@ -52,22 +55,44 @@ const DashboardPage = () => {
     > = []
 
     if (side === 'left') {
-      updatedAccounts = [
-        { ...accounts[0], balance: totalBalance },
-        { ...accounts[1], balance: 0 },
-      ]
+      if (transferAmount > accounts[1].balance || accounts[1].balance <= 0) {
+        alert(
+          `It was not possible to transfer your balance. \n Please check the amount entered and the total available \n in Saving Account.`,
+        )
+      } else {
+        //saving to checking
+        const checking = transferAmount + accounts[0].balance
+        const saving =
+          transferAmount === 0
+            ? accounts[1].balance
+            : accounts[1].balance - transferAmount
+        updatedAccounts = [
+          { ...accounts[0], balance: checking },
+          { ...accounts[1], balance: saving },
+        ]
+        setAccounts(updatedAccounts)
+      }
     }
 
     if (side === 'right') {
-      updatedAccounts = [
-        { ...accounts[0], balance: 0 },
-        { ...accounts[1], balance: totalBalance },
-      ]
+      if (transferAmount > accounts[0].balance || accounts[0].balance <= 0) {
+        alert(
+          `It was not possible to transfer your balance. \n Please check the amount entered and the total available \n in Checking Account.`,
+        )
+      } else {
+        //checking to saving
+        const saving = transferAmount + accounts[1].balance
+        const checking =
+          transferAmount === 0
+            ? accounts[0].balance
+            : accounts[0].balance - transferAmount
+        updatedAccounts = [
+          { ...accounts[0], balance: checking },
+          { ...accounts[1], balance: saving },
+        ]
+        setAccounts(updatedAccounts)
+      }
     }
-    setAccounts(updatedAccounts)
-  }
-  const handleNavigation = (path: string) => {
-    router.push(path)
   }
 
   return (
@@ -107,22 +132,46 @@ const DashboardPage = () => {
             }}
           />
           <div>
-            <IconAndLabel icon={faHouse} label={'Home'} />
-            <IconAndLabel icon={faChartSimple} label={'Analytics'} />
-            <IconAndLabel icon={faMoneyBillTrendUp} label={'My Investment'} />
-            <IconAndLabel icon={faIdCard} label={'My Accounts'} />
+            <IconAndLabel
+              icon={faHouse}
+              label={'Home'}
+              navigateTo={'/dashboard'}
+            />
+            <IconAndLabel
+              icon={faChartSimple}
+              label={'Analytics'}
+              navigateTo={'/dashboard'}
+            />
+            <IconAndLabel
+              icon={faMoneyBillTrendUp}
+              label={'My Investment'}
+              navigateTo={'/dashboard'}
+            />
+            <IconAndLabel
+              icon={faIdCard}
+              label={'My Accounts'}
+              navigateTo={'/dashboard'}
+            />
             <IconAndLabel
               icon={faGear}
               label={'Settings'}
-              onClick={() => handleNavigation('/')}
+              navigateTo={'/dashboard'}
             />
             <div
               style={{
                 border: '1px solid white',
               }}
             />
-            <IconAndLabel icon={faCircleHalfStroke} label={'Dark Theme'} />
-            <IconAndLabel icon={faLock} label={'Change\n Password'} />
+            <IconAndLabel
+              icon={faCircleHalfStroke}
+              label={'Dark Theme'}
+              navigateTo={'/dashboard'}
+            />
+            <IconAndLabel
+              icon={faLock}
+              label={'Change\n Password'}
+              navigateTo={'/dashboard'}
+            />
           </div>
         </div>
       </div>
@@ -137,14 +186,21 @@ const DashboardPage = () => {
               flexDirection: 'row',
             }}
           >
-            <div style={{ flex: 4, justifyContent: 'center' }}>
+            <div style={{ flex: 3 }}>
               <AccountCard
                 type={accounts[0].accountType}
                 amount={accounts[0].balance}
               />
             </div>
 
-            <div style={{ flex: 1, paddingLeft: 30, paddingRight: 30 }}>
+            <div
+              style={{
+                flex: 2,
+                textAlign: 'center',
+                marginTop: 20,
+                padding: 10,
+              }}
+            >
               <div onClick={() => updateBalances('left')}>
                 <FontAwesomeIcon
                   icon={faCircleArrowLeft}
@@ -152,25 +208,46 @@ const DashboardPage = () => {
                     color: 'oklch(var(--p))',
                     width: 50,
                     height: 50,
-                    paddingTop: 30,
                     cursor: 'pointer',
                   }}
                 />
               </div>
-              <div onClick={() => updateBalances('right')}>
+              <div
+                onClick={() => updateBalances('right')}
+                style={{ paddingTop: 20, paddingBottom: 20 }}
+              >
                 <FontAwesomeIcon
                   icon={faCircleArrowRight}
                   style={{
                     color: 'oklch(var(--p))',
                     width: 50,
                     height: 50,
-                    paddingTop: 30,
+
                     cursor: 'pointer',
                   }}
                 />
               </div>
+              <input
+                type="text"
+                placeholder="Type here"
+                className="input input-bordered input-sm"
+                value={transferAmount}
+                style={{ width: '70px' }}
+                onChange={(e) => {
+                  const value = e.target.value
+                  //validating to backspace do not makes the 'transferAmount' NaN
+                  if (value === '') {
+                    setTransferAmount(0)
+                  } else {
+                    const parsedValue = parseInt(value)
+                    if (!isNaN(parsedValue)) {
+                      setTransferAmount(parsedValue)
+                    }
+                  }
+                }}
+              />
             </div>
-            <div style={{ flex: 4, justifyContent: 'center' }}>
+            <div style={{ flex: 3 }}>
               <AccountCard
                 type={accounts[1].accountType}
                 amount={accounts[1].balance}

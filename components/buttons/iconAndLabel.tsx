@@ -1,32 +1,36 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { faIdCard } from '@fortawesome/free-solid-svg-icons'
-
-import React from 'react'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 interface IconAndLabelProps {
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
-  icon: IconProp
-  label?: string
+  icon: IconDefinition
+  label: string
+  navigateTo: string
 }
 
 const IconAndLabel: React.FC<IconAndLabelProps> = ({
   icon,
   label,
-  onClick,
+  navigateTo,
 }) => {
   return (
     <div className="text-white">
-      <a
-        className="btn btn-ghost text-xl"
-        style={{ display: 'flex', justifyContent: 'flex-start', fontSize: 15 }}
-      >
-        <FontAwesomeIcon
-          icon={icon}
-          style={{ width: 20, height: 20, paddingRight: 10 }}
-        />
-        {label}
-      </a>
+      <Link href={navigateTo}>
+        <h2
+          className="btn btn-ghost text-xl"
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            fontSize: 15,
+          }}
+        >
+          <FontAwesomeIcon
+            icon={icon}
+            style={{ width: 20, height: 20, paddingRight: 10 }}
+          />
+          {label}
+        </h2>
+      </Link>
     </div>
   )
 }
