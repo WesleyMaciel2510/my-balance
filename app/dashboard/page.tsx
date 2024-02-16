@@ -163,15 +163,17 @@ const DashboardPage = () => {
               }}
             />
             <IconAndLabel
-              icon={faCircleHalfStroke}
-              label={'Dark Theme'}
-              navigateTo={'/dashboard'}
-            />
-            <IconAndLabel
               icon={faLock}
               label={'Change\n Password'}
               navigateTo={'/dashboard'}
             />
+            <div onClick={() => console.log('CLICOU')}>
+              <IconAndLabel
+                icon={faCircleHalfStroke}
+                label={'Dark Theme'}
+                navigateTo={''}
+              />
+            </div>
           </div>
         </div>
       </div>
