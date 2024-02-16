@@ -1,13 +1,22 @@
 'use client'
 import { useSharedState } from '../global/sharedStates'
 import NavBar from '../../components/navbar'
-import AccountCard from '../../components/accountCard'
-import TableInfo from '../../components/infoTable'
+import AccountCard from '../../components/cards/accountCard'
+import TableInfo from '../../components/tables/infoTable'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
+  faCalculator,
+  faHouse,
+  faIdCard,
+  faChartSimple,
+  faMoneyBillTrendUp,
+  faGear,
+  faCircleHalfStroke,
+  faLock,
 } from '@fortawesome/free-solid-svg-icons'
+import IconAndLabel from '../../components/buttons/iconAndLabel'
 import { SetStateAction } from 'react'
 
 const DashboardPage = () => {
@@ -56,10 +65,67 @@ const DashboardPage = () => {
   }
 
   return (
-    <div style={{ flex: 1 }}>
-      <NavBar />
-      <div className="drawer lg:drawer-open">
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+    <div style={{ display: 'flex' }}>
+      <div
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          backgroundColor: '#337ab7',
+          height: '100vh',
+          boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)',
+          justifyContent: 'flex-start', // Add this line
+        }}
+      >
+        {/* LEFT  */}
+        <div
+          style={{
+            paddingTop: 10,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+          }}
+        >
+          <div style={{ marginTop: 10 }}>
+            <h1
+              className="text-white"
+              style={{
+                fontWeight: 'bold',
+                fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
+                textAlign: 'center',
+              }}
+            >
+              My Balance
+            </h1>
+          </div>
+          <div
+            style={{
+              border: '1px solid white',
+              marginTop: 15,
+              marginBottom: 10,
+            }}
+          />
+          <div>
+            <IconAndLabel icon={faHouse} label={'Home'} />
+            <IconAndLabel icon={faChartSimple} label={'Analytics'} />
+            <IconAndLabel icon={faMoneyBillTrendUp} label={'My Investment'} />
+            <IconAndLabel icon={faIdCard} label={'My Accounts'} />
+            <IconAndLabel icon={faGear} label={'Settings'} />
+            <div
+              style={{
+                border: '1px solid white',
+                marginTop: 10,
+                marginBottom: 10,
+              }}
+            />
+            <IconAndLabel icon={faCircleHalfStroke} label={'Dark Theme'} />
+            <IconAndLabel icon={faLock} label={'Change\n Password'} />
+          </div>
+        </div>
+      </div>
+
+      <div style={{ flex: 5, display: 'flex', flexDirection: 'column' }}>
+        {/* RIGHT */}
+        <NavBar />
         <div className="drawer-content flex flex-col items-center justify-center">
           <div
             style={{
@@ -119,28 +185,6 @@ const DashboardPage = () => {
               <TableInfo />
             </div>
           </div>
-          <label
-            htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
-          >
-            Open drawer
-          </label>
-        </div>
-        <div className="drawer-side">
-          <label
-            htmlFor="my-drawer-2"
-            aria-label="close sidebar"
-            className="drawer-overlay"
-          ></label>
-          <ul className="menu p-4 w-40 max-h-64 bg-base-200 text-base-content">
-            {/* Sidebar content here */}
-            <li>
-              <a>Sidebar Item 1</a>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>

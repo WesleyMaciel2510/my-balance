@@ -51,7 +51,7 @@ export default function Home() {
               className="shadow p-8 rounded-md"
               onSubmit={handleSubmit}
               style={{
-                backgroundColor: '#70a5f5',
+                backgroundColor: '#337ab7',
                 borderWidth: 2,
                 borderColor: 'white',
               }}

@@ -9,12 +9,13 @@ interface AccountCardProps {
 const AccountCard: React.FC<AccountCardProps> = ({ type, amount }) => {
   const [isHovered, setIsHovered] = useState(false)
   return (
-    <div style={{ flex: 1 }}>
+    <div style={{ flex: 1, padding: 10 }}>
       <div
         className="card w-96 glass"
         style={{
-          backgroundColor: isHovered ? '#09b531' : '#20f559',
+          backgroundColor: isHovered ? '#07508f' : '#337ab7',
           borderRadius: 12,
+          boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)',
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

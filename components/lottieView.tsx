@@ -4,9 +4,16 @@ import Lottie from 'react-lottie'
 interface Props {
   animationData: any
   loopingActive: boolean
+  width?: number //?: to make it optional
+  height?: number //?: to make it optional
 }
 
-const LottieView: React.FC<Props> = ({ animationData, loopingActive }) => {
+const LottieView: React.FC<Props> = ({
+  animationData,
+  loopingActive,
+  height,
+  width,
+}) => {
   const defaultOptions = {
     loop: loopingActive,
     autoplay: true,
@@ -18,7 +25,11 @@ const LottieView: React.FC<Props> = ({ animationData, loopingActive }) => {
 
   return (
     <div>
-      <Lottie options={defaultOptions} height={400} width={400} />
+      <Lottie
+        options={defaultOptions}
+        height={height ? height : 400}
+        width={width ? width : 400}
+      />
     </div>
   )
 }

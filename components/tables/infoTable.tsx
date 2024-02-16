@@ -1,75 +1,72 @@
-import React, { ChangeEvent, useState } from "react";
-import { useSharedState } from "../app/global/sharedStates";
+import React, { ChangeEvent, useState } from 'react'
+import { useSharedState } from '../../app/global/sharedStates'
 
 const TableInfo = () => {
-  const { accounts, setAccounts } = useSharedState();
+  const { accounts, setAccounts } = useSharedState()
   const [mockData, setMockData] = useState({
-    accountType: "",
-    accountNumber: "",
-    bankName: "",
+    accountType: '',
+    accountNumber: '',
+    bankName: '',
     income: 0,
     withdraw: 0,
     balance: 0,
-  });
-  const [isHovered, setIsHovered] = useState(false);
+  })
+  const [isHovered, setIsHovered] = useState(false)
   //==========================================================
   const handleAddAccount = () => {
-    console.log("Checking account = ", accounts[0]);
-    console.log("Saving Account = ", accounts[1]);
-    console.log("Mock Account = ", mockData);
-    setAccounts((prevAccounts) => [...prevAccounts, mockData]);
+    setAccounts((prevAccounts) => [...prevAccounts, mockData])
     //cleaning input
     setMockData({
-      accountType: "",
-      accountNumber: "",
-      bankName: "",
+      accountType: '',
+      accountNumber: '',
+      bankName: '',
       income: 0,
       withdraw: 0,
       balance: 0,
-    });
-  };
+    })
+  }
 
   const handleChange = (data: any, key: any, accountIndex: number) => {
-    const { value } = data.target;
-    console.log("value = ", value);
-    console.log("key = ", key);
-    console.log("accountIndex = ", accountIndex);
+    const { value } = data.target
+    console.log('value = ', value)
+    console.log('key = ', key)
+    console.log('accountIndex = ', accountIndex)
     setAccounts((prevAccounts) => {
-      const updatedAccounts = [...prevAccounts];
+      const updatedAccounts = [...prevAccounts]
       updatedAccounts[accountIndex] = {
         ...updatedAccounts[accountIndex],
         [key]: value,
-      };
-      return updatedAccounts;
-    });
-  };
+      }
+      return updatedAccounts
+    })
+  }
   const handleMockChange = (data: any, key: any) => {
-    const { value } = data.target;
+    const { value } = data.target
     setMockData((prevData) => ({
       ...prevData,
       [key]: value,
-    }));
-  };
+    }))
+  }
   //==========================================================
   return (
     <div>
       <div
         style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
           paddingBottom: 10,
         }}
       >
         <div>
-          <h2 style={{ textAlign: "left", fontSize: 25 }}>Account Details</h2>
+          <h2 style={{ textAlign: 'left', fontSize: 25 }}>Account Details</h2>
         </div>
         <div>
           <button
-            className="btn"
+            className="btn text-white"
             style={{
               borderRadius: 5,
-              backgroundColor: isHovered ? "#09b531" : "#20f559",
+              backgroundColor: isHovered ? '#07508f' : '#337ab7',
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -80,9 +77,10 @@ const TableInfo = () => {
         </div>
       </div>
       <div className="overflow-x-auto" style={{ borderRadius: 8 }}>
-        <table className="table" style={{ color: "#000" }}>
+        <table className="table" style={{ color: '#000' }}>
           {/* head */}
-          <thead style={{ backgroundColor: "#20f559" }}>
+
+          <thead className="text-white" style={{ backgroundColor: '#337ab7' }}>
             <tr>
               <th>Account Type</th>
               <th>Account Number</th>
@@ -102,7 +100,7 @@ const TableInfo = () => {
                     className="input input-ghost input-sm w-full max-w-"
                     value={account.accountType}
                     onChange={(data) =>
-                      handleChange(data, "accountType", index)
+                      handleChange(data, 'accountType', index)
                     }
                   />
                 </td>
@@ -113,7 +111,7 @@ const TableInfo = () => {
                     className="input input-ghost input-sm w-full max-w-"
                     value={account.accountNumber}
                     onChange={(data) =>
-                      handleChange(data, "accountNumber", index)
+                      handleChange(data, 'accountNumber', index)
                     }
                   />
                 </td>
@@ -123,7 +121,7 @@ const TableInfo = () => {
                     placeholder="Type here"
                     className="input input-ghost input-sm w-full max-w-"
                     value={account.bankName}
-                    onChange={(data) => handleChange(data, "bankName", index)}
+                    onChange={(data) => handleChange(data, 'bankName', index)}
                   />
                 </td>
                 <td>
@@ -132,7 +130,7 @@ const TableInfo = () => {
                     placeholder="Type here"
                     className="input input-ghost input-sm w-full max-w-"
                     value={account.income}
-                    onChange={(data) => handleChange(data, "income", index)}
+                    onChange={(data) => handleChange(data, 'income', index)}
                   />
                 </td>
                 <td>
@@ -141,7 +139,7 @@ const TableInfo = () => {
                     placeholder="Type here"
                     className="input input-ghost input-sm w-full max-w-"
                     value={account.withdraw}
-                    onChange={(data) => handleChange(data, "withdraw", index)}
+                    onChange={(data) => handleChange(data, 'withdraw', index)}
                   />
                 </td>
                 <td>{account.income - account.withdraw}</td>
@@ -155,7 +153,7 @@ const TableInfo = () => {
                   placeholder="Type here"
                   className="input input-ghost input-sm w-full max-w-"
                   value={mockData.accountType}
-                  onChange={(data) => handleMockChange(data, "accountType")}
+                  onChange={(data) => handleMockChange(data, 'accountType')}
                 />
               </td>
               <td>
@@ -164,7 +162,7 @@ const TableInfo = () => {
                   placeholder="Type here"
                   className="input input-ghost input-sm w-full max-w-"
                   value={mockData.accountNumber}
-                  onChange={(data) => handleMockChange(data, "accountNumber")}
+                  onChange={(data) => handleMockChange(data, 'accountNumber')}
                 />
               </td>
               <td>
@@ -173,7 +171,7 @@ const TableInfo = () => {
                   placeholder="Type here"
                   className="input input-ghost input-sm w-full max-w-"
                   value={mockData.bankName}
-                  onChange={(data) => handleMockChange(data, "bankName")}
+                  onChange={(data) => handleMockChange(data, 'bankName')}
                 />
               </td>
               <td>
@@ -182,7 +180,7 @@ const TableInfo = () => {
                   placeholder="Type here"
                   className="input input-ghost input-sm w-full max-w-"
                   value={mockData.income}
-                  onChange={(data) => handleMockChange(data, "income")}
+                  onChange={(data) => handleMockChange(data, 'income')}
                 />
               </td>
               <td>
@@ -191,7 +189,7 @@ const TableInfo = () => {
                   placeholder="Type here"
                   className="input input-ghost input-sm w-full max-w-"
                   value={mockData.withdraw}
-                  onChange={(data) => handleMockChange(data, "withdraw")}
+                  onChange={(data) => handleMockChange(data, 'withdraw')}
                 />
               </td>
               <td>{mockData.income - mockData.withdraw}</td>
@@ -200,10 +198,10 @@ const TableInfo = () => {
         </table>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TableInfo;
+export default TableInfo
 function elseif(arg0: boolean) {
-  throw new Error("Function not implemented.");
+  throw new Error('Function not implemented.')
 }

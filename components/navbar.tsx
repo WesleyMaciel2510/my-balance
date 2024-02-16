@@ -6,18 +6,15 @@ import Link from 'next/link'
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-100 drawer">
-      <div className=" drawer-content flex-1">
-        <a className="btn btn-ghost text-xl">Home</a>
-      </div>
-      <div className="flex-none gap-2">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
-          />
-        </div>
+    <div
+      className="navbar bg-base-100 drawer"
+      style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        backgroundColor: '#337ab7',
+      }}
+    >
+      <div>
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
@@ -35,7 +32,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            className="my-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-42"
           >
             <li>
               <a className="justify-between">
