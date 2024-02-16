@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import profileImage from '../assets/profile.jpg'
-import IconButton from '../components/buttons/drawerButton'
 import Link from 'next/link'
 
 const NavBar = () => {

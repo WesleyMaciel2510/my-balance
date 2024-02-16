@@ -1,5 +1,6 @@
 'use client'
 import { useSharedState } from '../global/sharedStates'
+import { useRouter } from 'next/navigation'
 import NavBar from '../../components/navbar'
 import AccountCard from '../../components/cards/accountCard'
 import TableInfo from '../../components/tables/infoTable'
@@ -21,6 +22,8 @@ import { SetStateAction } from 'react'
 
 const DashboardPage = () => {
   const { accounts, setAccounts } = useSharedState()
+  const router = useRouter()
+
   const addAccount = () => {
     setAccounts((prevAccounts) => [
       ...prevAccounts,
@@ -63,17 +66,17 @@ const DashboardPage = () => {
     }
     setAccounts(updatedAccounts)
   }
+  const handleNavigation = (path: string) => {
+    router.push(path)
+  }
 
   return (
     <div style={{ display: 'flex' }}>
       <div
         style={{
-          flex: 1,
-          flexDirection: 'column',
           backgroundColor: '#337ab7',
-          height: '100vh',
           boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)',
-          justifyContent: 'flex-start', // Add this line
+          minHeight: '100vh',
         }}
       >
         {/* LEFT  */}
@@ -101,7 +104,6 @@ const DashboardPage = () => {
             style={{
               border: '1px solid white',
               marginTop: 15,
-              marginBottom: 10,
             }}
           />
           <div>
@@ -109,12 +111,14 @@ const DashboardPage = () => {
             <IconAndLabel icon={faChartSimple} label={'Analytics'} />
             <IconAndLabel icon={faMoneyBillTrendUp} label={'My Investment'} />
             <IconAndLabel icon={faIdCard} label={'My Accounts'} />
-            <IconAndLabel icon={faGear} label={'Settings'} />
+            <IconAndLabel
+              icon={faGear}
+              label={'Settings'}
+              onClick={() => handleNavigation('/')}
+            />
             <div
               style={{
                 border: '1px solid white',
-                marginTop: 10,
-                marginBottom: 10,
               }}
             />
             <IconAndLabel icon={faCircleHalfStroke} label={'Dark Theme'} />
