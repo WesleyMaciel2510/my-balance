@@ -1,8 +1,6 @@
 import React from 'react'
 import IconAndLabel from './buttons/iconAndLabel'
 import {
-  faCircleArrowLeft,
-  faCircleArrowRight,
   faHouse,
   faIdCard,
   faChartSimple,
@@ -10,6 +8,10 @@ import {
   faGear,
   faCircleHalfStroke,
   faLock,
+  faRightFromBracket,
+  faAddressCard,
+  faUser,
+  faRotate,
 } from '@fortawesome/free-solid-svg-icons'
 import { useSharedState } from '@/global/sharedStates'
 import { useRouter } from 'next/navigation'
@@ -40,7 +42,9 @@ const LeftBar = () => {
       </div>
       <div
         style={{
-          border: '1px solid white',
+          borderBottomStyle: 'double',
+          borderBottomWidth: '3px',
+          borderBottomColor: 'white',
           marginTop: 15,
         }}
       />
@@ -49,38 +53,51 @@ const LeftBar = () => {
         <IconAndLabel
           icon={faChartSimple}
           label={'Analytics'}
-          navigateTo={'/dashboard'}
+          navigateTo={'/analytics'}
         />
         <IconAndLabel
           icon={faMoneyBillTrendUp}
-          label={'My Investment'}
-          navigateTo={'/dashboard'}
+          label={'My Investments'}
+          navigateTo={'/my-investments'}
         />
         <IconAndLabel
           icon={faIdCard}
           label={'My Accounts'}
-          navigateTo={'/dashboard'}
+          navigateTo={'/my-accounts'}
         />
+        <IconAndLabel
+          icon={faRotate}
+          label={'Open Finance'}
+          navigateTo={'/open-finance'}
+        />
+        <IconAndLabel
+          icon={faCircleHalfStroke}
+          label={'Dark Theme'}
+          navigateTo={''}
+        />
+        <div
+          style={{
+            borderStyle: 'double',
+            borderBottomWidth: '3px',
+            borderBottomColor: 'white',
+          }}
+        />
+        <IconAndLabel icon={faUser} label={'Profile'} navigateTo={''} />
         <IconAndLabel
           icon={faGear}
           label={'Settings'}
           navigateTo={'/dashboard'}
-        />
-        <div
-          style={{
-            border: '1px solid white',
-          }}
         />
         <IconAndLabel
           icon={faLock}
           label={'Change\n Password'}
           navigateTo={'/dashboard'}
         />
-        <div onClick={() => setDarktheme(!darktheme)}>
+        <div style={{ position: 'fixed', bottom: 0, width: '15%' }}>
           <IconAndLabel
-            icon={faCircleHalfStroke}
-            label={'Dark Theme'}
-            navigateTo={''}
+            icon={faRightFromBracket}
+            label={'Log Out'}
+            navigateTo={'/'}
           />
         </div>
       </div>

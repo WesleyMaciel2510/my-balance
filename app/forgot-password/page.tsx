@@ -4,6 +4,7 @@ import Link from 'next/link'
 import LottieView from '../../components/lottieView'
 import animationData from '../../assets/forgot.json'
 import NavBar from '../../components/navbar'
+import Footer from '@/components/footer/footer'
 
 const ForgotPasswordPage = () => {
   const [name, setName] = useState('')
@@ -37,8 +38,9 @@ const ForgotPasswordPage = () => {
           onSubmit={handleSubmit}
           style={{
             backgroundColor: '#70a5f5',
-            borderWidth: 2,
-            borderColor: 'white',
+            minHeight: '100vh',
+            borderWidth: 1,
+            borderColor: 'gray',
             flex: 1,
             flexDirection: 'column',
           }}
@@ -88,6 +90,7 @@ const ForgotPasswordPage = () => {
           </div>
         </form>
       </div>
+      <Footer />
     </main>
   )
 }

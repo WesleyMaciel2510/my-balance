@@ -12,7 +12,7 @@ import { SetStateAction, useState } from 'react'
 import LeftBar from '../../components/leftbar'
 import Footer from '@/components/footer/footer'
 
-const DashboardPage = () => {
+const AccountPage = () => {
   const { accounts, setAccounts, darktheme, setDarktheme } = useSharedState()
   const [transferAmount, setTransferAmount] = useState(0)
 
@@ -108,10 +108,100 @@ const DashboardPage = () => {
         }}
       >
         <NavBar />
-        <div></div>
+        <div
+          className="drawer-content flex flex-col items-center justify-center"
+          style={{ backgroundColor: darktheme ? 'white' : 'black' }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+            }}
+          >
+            <div style={{ flex: 3 }}>
+              <AccountCard
+                type={accounts[0].accountType}
+                amount={accounts[0].balance}
+              />
+            </div>
+
+            <div
+              style={{
+                flex: 2,
+                textAlign: 'center',
+                marginTop: 20,
+                padding: 10,
+              }}
+            >
+              <div onClick={() => updateBalances('left')}>
+                <FontAwesomeIcon
+                  icon={faCircleArrowLeft}
+                  style={{
+                    color: '#07508f',
+                    width: 50,
+                    height: 50,
+                    cursor: 'pointer',
+                  }}
+                />
+              </div>
+              <div
+                onClick={() => updateBalances('right')}
+                style={{ paddingTop: 20, paddingBottom: 20 }}
+              >
+                <FontAwesomeIcon
+                  icon={faCircleArrowRight}
+                  style={{
+                    color: '#07508f',
+                    width: 50,
+                    height: 50,
+
+                    cursor: 'pointer',
+                  }}
+                />
+              </div>
+              <input
+                type="text"
+                placeholder="Type here"
+                className="input input-bordered input-sm"
+                value={transferAmount}
+                style={{ width: '70px' }}
+                onChange={(e) => {
+                  const value = e.target.value
+                  //validating to backspace do not makes the 'transferAmount' NaN
+                  if (value === '') {
+                    setTransferAmount(0)
+                  } else {
+                    const parsedValue = parseInt(value)
+                    if (!isNaN(parsedValue)) {
+                      setTransferAmount(parsedValue)
+                    }
+                  }
+                }}
+              />
+            </div>
+            <div style={{ flex: 3 }}>
+              <AccountCard
+                type={accounts[1].accountType}
+                amount={accounts[1].balance}
+              />
+            </div>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+            }}
+          >
+            <div
+              style={{ paddingLeft: 100, paddingRight: 100, paddingTop: 20 }}
+            >
+              <TableInfo />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
-export default DashboardPage
+export default AccountPage

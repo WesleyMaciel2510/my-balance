@@ -78,11 +78,17 @@ const TableInfo = () => {
           </button>
         </div>
       </div>
-      <div className="overflow-x-auto" style={{ borderRadius: 8 }}>
+      <div
+        className="overflow-x-auto"
+        style={{ borderRadius: 8, borderColor: 'gray', borderWidth: 1 }}
+      >
         <table className="table" style={{ color: '#000' }}>
-          {/* head */}
-
-          <thead className="text-white" style={{ backgroundColor: '#337ab7' }}>
+          <thead
+            className="text-white"
+            style={{
+              backgroundColor: '#337ab7',
+            }}
+          >
             <tr>
               <th>Account Type</th>
               <th>Account Number</th>
