@@ -6,7 +6,7 @@ import Link from 'next/link'
 const NavBar = () => {
   return (
     <div
-      className="navbar bg-base-100 drawer"
+      className="navbar bg-base-100"
       style={{
         display: 'flex',
         justifyContent: 'flex-end',

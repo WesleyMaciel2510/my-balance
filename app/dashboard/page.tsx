@@ -1,6 +1,5 @@
 'use client'
-import { useSharedState } from '../global/sharedStates'
-import { useRouter } from 'next/navigation'
+import { useSharedState } from '../../global/sharedStates'
 import NavBar from '../../components/navbar'
 import AccountCard from '../../components/cards/accountCard'
 import TableInfo from '../../components/tables/infoTable'
@@ -8,22 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
-  faHouse,
-  faIdCard,
-  faChartSimple,
-  faMoneyBillTrendUp,
-  faGear,
-  faCircleHalfStroke,
-  faLock,
 } from '@fortawesome/free-solid-svg-icons'
-import IconAndLabel from '../../components/buttons/iconAndLabel'
 import { SetStateAction, useState } from 'react'
-import { Link } from 'react-router-dom'
+import LeftBar from '../../components/leftBar'
 
 const DashboardPage = () => {
-  const { accounts, setAccounts } = useSharedState()
+  const { accounts, setAccounts, darktheme, setDarktheme } = useSharedState()
   const [transferAmount, setTransferAmount] = useState(0)
-  const router = useRouter()
 
   const addAccount = () => {
     setAccounts((prevAccounts) => [
@@ -57,7 +47,7 @@ const DashboardPage = () => {
     if (side === 'left') {
       if (transferAmount > accounts[1].balance || accounts[1].balance <= 0) {
         alert(
-          `It was not possible to transfer your balance. \n Please check the amount entered and the total available \n in Saving Account.`,
+          `Unable to transfer your balance. \n Please check the amount entered and the total available \n in Saving Account.`,
         )
       } else {
         //saving to checking
@@ -77,7 +67,7 @@ const DashboardPage = () => {
     if (side === 'right') {
       if (transferAmount > accounts[0].balance || accounts[0].balance <= 0) {
         alert(
-          `It was not possible to transfer your balance. \n Please check the amount entered and the total available \n in Checking Account.`,
+          `Unable to transfer your balance. \n Please check the amount entered and the total available \n in Checking Account.`,
         )
       } else {
         //checking to saving
@@ -97,91 +87,30 @@ const DashboardPage = () => {
 
   return (
     <div style={{ display: 'flex' }}>
+      {/* LEFT  */}
       <div
         style={{
           backgroundColor: '#337ab7',
-          boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)',
+          boxShadow: '0px 0apx 7px 1px rgba(0,0,0,0.75)',
           minHeight: '100vh',
         }}
       >
-        {/* LEFT  */}
-        <div
-          style={{
-            paddingTop: 10,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-          }}
-        >
-          <div style={{ marginTop: 10 }}>
-            <h1
-              className="text-white"
-              style={{
-                fontWeight: 'bold',
-                fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-                textAlign: 'center',
-              }}
-            >
-              My Balance
-            </h1>
-          </div>
-          <div
-            style={{
-              border: '1px solid white',
-              marginTop: 15,
-            }}
-          />
-          <div>
-            <IconAndLabel
-              icon={faHouse}
-              label={'Home'}
-              navigateTo={'/dashboard'}
-            />
-            <IconAndLabel
-              icon={faChartSimple}
-              label={'Analytics'}
-              navigateTo={'/dashboard'}
-            />
-            <IconAndLabel
-              icon={faMoneyBillTrendUp}
-              label={'My Investment'}
-              navigateTo={'/dashboard'}
-            />
-            <IconAndLabel
-              icon={faIdCard}
-              label={'My Accounts'}
-              navigateTo={'/dashboard'}
-            />
-            <IconAndLabel
-              icon={faGear}
-              label={'Settings'}
-              navigateTo={'/dashboard'}
-            />
-            <div
-              style={{
-                border: '1px solid white',
-              }}
-            />
-            <IconAndLabel
-              icon={faLock}
-              label={'Change\n Password'}
-              navigateTo={'/dashboard'}
-            />
-            <div onClick={() => console.log('CLICOU')}>
-              <IconAndLabel
-                icon={faCircleHalfStroke}
-                label={'Dark Theme'}
-                navigateTo={''}
-              />
-            </div>
-          </div>
-        </div>
+        <LeftBar />
       </div>
 
-      <div style={{ flex: 5, display: 'flex', flexDirection: 'column' }}>
-        {/* RIGHT */}
+      {/* RIGHT */}
+      <div
+        style={{
+          flex: 5,
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         <NavBar />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div
+          className="drawer-content flex flex-col items-center justify-center"
+          style={{ backgroundColor: darktheme ? 'white' : 'black' }}
+        >
           <div
             style={{
               display: 'flex',
@@ -207,7 +136,7 @@ const DashboardPage = () => {
                 <FontAwesomeIcon
                   icon={faCircleArrowLeft}
                   style={{
-                    color: 'oklch(var(--p))',
+                    color: '#07508f',
                     width: 50,
                     height: 50,
                     cursor: 'pointer',
@@ -221,7 +150,7 @@ const DashboardPage = () => {
                 <FontAwesomeIcon
                   icon={faCircleArrowRight}
                   style={{
-                    color: 'oklch(var(--p))',
+                    color: '#07508f',
                     width: 50,
                     height: 50,
 
