@@ -21,6 +21,7 @@ const Analytics = () => {
       </div>
       {/* RIGHT */}
       <div
+        className="bg-color"
         style={{
           flex: 5,
           display: 'flex',

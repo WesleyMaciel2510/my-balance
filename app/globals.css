@@ -6,7 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --primary-color: #337ab7;
+  --background-color: '#';
   --secondary-color: #28a745;
   --contrasting-color: #f89406;
 }
@@ -40,6 +40,6 @@ body {
   margin-bottom: 0.5em;
 }
 
-.pd {
-  padding: 20;
+.bg-color {
+  background-color: #f0f0f0;
 }
