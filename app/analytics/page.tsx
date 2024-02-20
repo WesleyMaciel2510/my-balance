@@ -1,6 +1,6 @@
 'use client'
-import LeftBar from '@/components/leftbar'
-import NavBar from '@/components/navbar'
+import LeftBar from '@/components/bars/leftbar'
+import NavBar from '@/components/bars/navbar'
 import React, { useEffect, useState } from 'react'
 import ColumnGraph from '@/components/columnGraph'
 import checkingAccountData from './checkingAccount.json'
@@ -18,7 +18,7 @@ const Analytics = () => {
   }, [])
 
   return (
-    <div style={{ display: 'flex', backgroundColor: '#FAF9F6' }}>
+    <div style={{ display: 'flex' }}>
       {/* LEFT */}
       <div
         style={{
@@ -35,10 +35,17 @@ const Analytics = () => {
           flex: 5,
           display: 'flex',
           flexDirection: 'column',
+          backgroundColor: '#E2DFD2',
         }}
       >
         <NavBar />
-        <div style={{ padding: 20, paddingLeft: 50, paddingRight: 50 }}>
+        <div
+          style={{
+            padding: 20,
+            paddingLeft: 50,
+            paddingRight: 50,
+          }}
+        >
           <div
             style={{
               flex: 1,
@@ -48,10 +55,12 @@ const Analytics = () => {
               padding: 20,
               display: 'flex',
               flexDirection: 'column',
+              backgroundColor: 'white',
             }}
           >
             <div>
               <h2
+                className="title-text"
                 style={{
                   flex: 1,
                   textAlign: 'left',
@@ -79,7 +88,10 @@ const Analytics = () => {
                         IncomeColor="#008080"
                         OutcomeColor="#FFD700"
                       />
-                      <h2 style={{ textAlign: 'center', fontSize: 18 }}>
+                      <h2
+                        className="title-text"
+                        style={{ textAlign: 'center', fontSize: 18 }}
+                      >
                         Checking Account
                       </h2>
                     </div>
@@ -101,7 +113,10 @@ const Analytics = () => {
                         IncomeColor="#8a2be2"
                         OutcomeColor="#3cb371"
                       />
-                      <h2 style={{ textAlign: 'center', fontSize: 18 }}>
+                      <h2
+                        className="title-text"
+                        style={{ textAlign: 'center', fontSize: 18 }}
+                      >
                         Saving Account
                       </h2>
                     </div>

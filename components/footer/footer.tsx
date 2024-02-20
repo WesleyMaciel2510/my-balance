@@ -10,7 +10,7 @@ const Footer = () => {
       style={{
         borderTopWidth: 3,
         borderColor: '#fff',
-        position: 'fixed',
+        minHeight: '31vh',
         bottom: 0,
       }}
     >

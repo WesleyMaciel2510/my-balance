@@ -1,6 +1,6 @@
 'use client'
 import { useSharedState } from '../../global/sharedStates'
-import NavBar from '../../components/navbar'
+import NavBar from '../../components/bars/navbar'
 import AccountCard from '../../components/cards/accountCard'
 import TableInfo from '../../components/tables/infoTable'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,7 +9,7 @@ import {
   faCircleArrowRight,
 } from '@fortawesome/free-solid-svg-icons'
 import { SetStateAction, useState } from 'react'
-import LeftBar from '../../components/leftbar'
+import LeftBar from '../../components/bars/leftbar'
 import Footer from '@/components/footer/footer'
 
 const AccountPage = () => {
@@ -110,7 +110,7 @@ const AccountPage = () => {
         <NavBar />
         <div
           className="drawer-content flex flex-col items-center justify-center"
-          style={{ backgroundColor: darktheme ? 'white' : 'black' }}
+          style={{ backgroundColor: '#F1F1F1' }}
         >
           <div
             style={{

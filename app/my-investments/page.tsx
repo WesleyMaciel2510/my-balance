@@ -1,6 +1,6 @@
 'use client'
-import LeftBar from '@/components/leftbar'
-import NavBar from '@/components/navbar'
+import LeftBar from '@/components/bars/leftbar'
+import NavBar from '@/components/bars/navbar'
 import { useSharedState } from '@/global/sharedStates'
 import React from 'react'
 

@@ -47,7 +47,7 @@ const SignUpPage = () => {
             borderColor: 'gray',
             flex: 1,
             flexDirection: 'column',
-            minHeight: '100vh',
+            minHeight: '80vh',
           }}
         >
           <h1 className="text-2xl font-bold text-left mb-4 text-white">
@@ -95,6 +95,22 @@ const SignUpPage = () => {
                   className="block text-sm font-medium mb-1 text-white"
                 >
                   Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  className="px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium mb-1 text-white"
+                >
+                  Repeat Password
                 </label>
                 <input
                   type="password"

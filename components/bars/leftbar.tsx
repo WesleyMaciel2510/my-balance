@@ -1,5 +1,5 @@
 import React from 'react'
-import IconAndLabel from './buttons/iconAndLabel'
+import IconAndLabel from '../buttons/iconAndLabel'
 import {
   faHouse,
   faIdCard,
@@ -82,7 +82,7 @@ const LeftBar = () => {
             borderBottomColor: 'white',
           }}
         />
-        <IconAndLabel icon={faUser} label={'Profile'} navigateTo={''} />
+        <IconAndLabel icon={faUser} label={'Profile'} navigateTo={'/profile'} />
         <IconAndLabel
           icon={faGear}
           label={'Settings'}

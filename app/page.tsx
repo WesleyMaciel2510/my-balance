@@ -37,7 +37,7 @@ export default function Home() {
   }
   return (
     <main>
-      <div className="flex container mx-auto px-4 pt-16">
+      <div className="flex container mx-auto px-4 pt-5">
         <Head>
           <title>Login</title>
           <meta name="description" content="Login to your account" />

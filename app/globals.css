@@ -32,3 +32,14 @@ body {
 .text-white {
   color: white;
 }
+
+.title-text {
+  font-size: 1.5em;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.pd {
+  padding: 20;
+}

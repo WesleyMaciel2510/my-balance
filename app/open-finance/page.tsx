@@ -1,11 +1,12 @@
 'use client'
-import LeftBar from '@/components/leftbar'
-import NavBar from '@/components/navbar'
-import { useSharedState } from '@/global/sharedStates'
+import LeftBar from '@/components/bars/leftbar'
+import LottieView from '@/components/lottieView'
+import NavBar from '@/components/bars/navbar'
 import React from 'react'
+import MobileMockup from '@/components/mobileMockup'
 
 const OpenFinance = () => {
-  const { accounts, setAccounts, darktheme, setDarktheme } = useSharedState()
+  const animationData = require('../../assets/world.json')
 
   return (
     <div style={{ display: 'flex' }}>
@@ -29,9 +30,24 @@ const OpenFinance = () => {
       >
         <NavBar />
         <div
-          className="drawer-content flex flex-col items-center justify-center"
-          style={{ backgroundColor: darktheme ? 'white' : 'black' }}
-        ></div>
+          className="title-text"
+          style={{
+            alignSelf: 'flex-end',
+            paddingTop: 10,
+            paddingRight: 50,
+          }}
+        >
+          <h2
+            style={{
+              paddingBottom: 10,
+              whiteSpace: 'pre-line',
+              textAlign: 'center',
+            }}
+          >
+            Check Out{'\n'} Our New App
+          </h2>
+          <MobileMockup />
+        </div>
       </div>
     </div>
   )

@@ -80,7 +80,12 @@ const TableInfo = () => {
       </div>
       <div
         className="overflow-x-auto"
-        style={{ borderRadius: 8, borderColor: 'gray', borderWidth: 1 }}
+        style={{
+          borderRadius: 8,
+          borderColor: 'gray',
+          borderWidth: 1,
+          backgroundColor: 'white',
+        }}
       >
         <table className="table" style={{ color: '#000' }}>
           <thead

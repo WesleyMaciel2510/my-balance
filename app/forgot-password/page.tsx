@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import LottieView from '../../components/lottieView'
 import animationData from '../../assets/forgot.json'
-import NavBar from '../../components/navbar'
+import NavBar from '../../components/bars/navbar'
 import Footer from '@/components/footer/footer'
 
 const ForgotPasswordPage = () => {
