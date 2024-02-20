@@ -1,0 +1,8 @@
+[
+  { "Month": "Jan", "Outcome": 4500, "Income": 2800 },
+  { "Month": "Feb", "Outcome": 3200, "Income": 1500 },
+  { "Month": "Mar", "Outcome": 2100, "Income": 8100 },
+  { "Month": "Apr", "Outcome": 2300, "Income": 7600 },
+  { "Month": "May", "Outcome": 1800, "Income": 7200 },
+  { "Month": "Jun", "Outcome": 2000, "Income": 6800 }
+]

@@ -8,15 +8,23 @@ import {
   Legend,
 } from 'recharts'
 
-const ColumnGraph = () => {
-  const data = [
-    { Month: 'Jan', Outcome: 4500, Income: 2800 },
-    { Month: 'Feb', Outcome: 3200, Income: 1500 },
-    { Month: 'Mar', Outcome: 2100, Income: 8100 },
-    { Month: 'Apr', Outcome: 2300, Income: 7600 },
-    { Month: 'May', Outcome: 1800, Income: 7200 },
-    { Month: 'Jun', Outcome: 2000, Income: 6800 },
-  ]
+interface GraphData {
+  Month: string
+  Outcome: number
+  Income: number
+}
+
+interface ColumnGraphProps {
+  data: GraphData[]
+  IncomeColor: string
+  OutcomeColor: string
+}
+
+const ColumnGraph: React.FC<ColumnGraphProps> = ({
+  data,
+  IncomeColor,
+  OutcomeColor,
+}) => {
   return (
     <BarChart
       width={500}
@@ -34,8 +42,8 @@ const ColumnGraph = () => {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="Income" fill="#8884d8" />
-      <Bar dataKey="Outcome" fill="#82ca9d" />
+      <Bar dataKey="Income" fill={IncomeColor} />
+      <Bar dataKey="Outcome" fill={OutcomeColor} />
     </BarChart>
   )
 }

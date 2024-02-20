@@ -1,10 +1,10 @@
 'use client'
 import LeftBar from '@/components/leftbar'
 import NavBar from '@/components/navbar'
-import AccountCard from '../../components/cards/accountCard'
-import { useSharedState } from '@/global/sharedStates'
 import React, { useEffect, useState } from 'react'
 import ColumnGraph from '@/components/columnGraph'
+import checkingAccountData from './checkingAccount.json'
+import savingAccountData from './savingAccount.json'
 
 const Analytics = () => {
   const [isClient, setIsClient] = useState(false)
@@ -46,19 +46,56 @@ const Analytics = () => {
               flexDirection: 'column',
             }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div>
               <h2
                 style={{
                   flex: 1,
                   textAlign: 'left',
                   fontSize: 23,
-                  padding: 10,
+                  paddingTop: 5,
+                  paddingBottom: 15,
                 }}
               >
                 Account Details
               </h2>
             </div>
-            <div>{isClient && <ColumnGraph />}</div>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <div style={{ flex: 1 }}>
+                {isClient && (
+                  <ColumnGraph
+                    data={checkingAccountData}
+                    IncomeColor="#008080"
+                    OutcomeColor="#FFD700"
+                  />
+                )}
+                <h2
+                  style={{
+                    textAlign: 'center',
+                    fontSize: 18,
+                  }}
+                >
+                  Checking Account
+                </h2>
+              </div>
+              <div style={{ flex: 1 }}>
+                {isClient && (
+                  <ColumnGraph
+                    data={savingAccountData}
+                    IncomeColor="#8a2be2"
+                    OutcomeColor="#3cb371"
+                  />
+                )}
+                <h2
+                  style={{
+                    textAlign: 'center',
+                    fontSize: 18,
+                  }}
+                >
+                  Saving Account
+                </h2>
+              </div>
+            </div>
+            <div></div>
           </div>
         </div>
       </div>
