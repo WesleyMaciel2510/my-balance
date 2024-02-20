@@ -2,7 +2,7 @@
 import LeftBar from '@/components/bars/leftbar'
 import NavBar from '@/components/bars/navbar'
 import React, { useEffect, useState } from 'react'
-import ColumnGraph from '@/components/columnGraph'
+import BarChartComponent from '@/components/charts/barChart'
 import checkingAccountData from './checkingAccount.json'
 import savingAccountData from './savingAccount.json'
 import LottieView from '@/components/lottieView'
@@ -43,6 +43,7 @@ const Analytics = () => {
           flex: 5,
           display: 'flex',
           flexDirection: 'column',
+          minWidth: '50%',
         }}
       >
         <NavBar />
@@ -85,7 +86,7 @@ const Analytics = () => {
                 role="tab"
                 className="tab"
                 id="tab1"
-                aria-label="Tab 1"
+                aria-label="BarChart"
                 checked={selectedTab === 'tab1'}
                 onChange={handleTabChange}
               />
@@ -108,7 +109,7 @@ const Analytics = () => {
                         </div>
                       ) : (
                         <div>
-                          <ColumnGraph
+                          <BarChartComponent
                             data={checkingAccountData}
                             IncomeColor="#008080"
                             OutcomeColor="#FFD700"
@@ -132,8 +133,8 @@ const Analytics = () => {
                           />
                         </div>
                       ) : (
-                        <div>
-                          <ColumnGraph
+                        <div className="w-1/2 pr-4">
+                          <BarChartComponent
                             data={savingAccountData}
                             IncomeColor="#8a2be2"
                             OutcomeColor="#3cb371"

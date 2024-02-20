@@ -14,13 +14,13 @@ interface GraphData {
   Income: number
 }
 
-interface ColumnGraphProps {
+interface BarChartComponentProps {
   data: GraphData[]
   IncomeColor: string
   OutcomeColor: string
 }
 
-const ColumnGraph: React.FC<ColumnGraphProps> = ({
+const BarChartComponent: React.FC<BarChartComponentProps> = ({
   data,
   IncomeColor,
   OutcomeColor,
@@ -48,4 +48,4 @@ const ColumnGraph: React.FC<ColumnGraphProps> = ({
   )
 }
 
-export default ColumnGraph
+export default BarChartComponent
