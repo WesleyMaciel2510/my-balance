@@ -76,7 +76,7 @@ const Analytics = () => {
                   paddingBottom: 15,
                 }}
               >
-                Account Details
+                Analytics
               </h2>
             </div>
             <div role="tablist" className="tabs tabs-lifted">
