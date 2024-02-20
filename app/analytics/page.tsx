@@ -11,11 +11,18 @@ const Analytics = () => {
   const animationData = require('../../assets/loading-success.json')
   const [isClient, setIsClient] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [selectedTab, setSelectedTab] = useState('tab1')
 
   useEffect(() => {
     setIsClient(true)
     setTimeout(() => setIsLoading(false), 1000)
   }, [])
+
+  const handleTabChange = (event: {
+    target: { id: React.SetStateAction<string> }
+  }) => {
+    setSelectedTab(event.target.id)
+  }
 
   return (
     <div style={{ display: 'flex' }}>
@@ -71,56 +78,114 @@ const Analytics = () => {
                 Account Details
               </h2>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-              <div style={{ flex: 1 }}>
-                {isClient &&
-                  (isLoading ? (
-                    <div className="w-1/2 pr-4">
-                      <LottieView
-                        animationData={animationData}
-                        loopingActive={false}
-                      />
-                    </div>
-                  ) : (
-                    <div>
-                      <ColumnGraph
-                        data={checkingAccountData}
-                        IncomeColor="#008080"
-                        OutcomeColor="#FFD700"
-                      />
-                      <h2
-                        className="title-text"
-                        style={{ textAlign: 'center', fontSize: 18 }}
-                      >
-                        Checking Account
-                      </h2>
-                    </div>
-                  ))}
+            <div role="tablist" className="tabs tabs-lifted">
+              <input
+                type="radio"
+                name="my_tabs_2"
+                role="tab"
+                className="tab"
+                id="tab1"
+                aria-label="Tab 1"
+                checked={selectedTab === 'tab1'}
+                onChange={handleTabChange}
+              />
+              <div
+                role="tabpanel"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                aria-labelledby="tab1"
+                style={{ display: selectedTab === 'tab1' ? 'flex' : 'none' }}
+              >
+                {/* Tab content 1 */}
+                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                  <div style={{ flex: 1 }}>
+                    {isClient &&
+                      (isLoading ? (
+                        <div className="w-1/2 pr-4">
+                          <LottieView
+                            animationData={animationData}
+                            loopingActive={false}
+                          />
+                        </div>
+                      ) : (
+                        <div>
+                          <ColumnGraph
+                            data={checkingAccountData}
+                            IncomeColor="#008080"
+                            OutcomeColor="#FFD700"
+                          />
+                          <h2
+                            className="title-text"
+                            style={{ textAlign: 'center', fontSize: 18 }}
+                          >
+                            Checking Account
+                          </h2>
+                        </div>
+                      ))}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    {isClient &&
+                      (isLoading ? (
+                        <div className="w-1/2 pr-4">
+                          <LottieView
+                            animationData={animationData}
+                            loopingActive={false}
+                          />
+                        </div>
+                      ) : (
+                        <div>
+                          <ColumnGraph
+                            data={savingAccountData}
+                            IncomeColor="#8a2be2"
+                            OutcomeColor="#3cb371"
+                          />
+                          <h2
+                            className="title-text"
+                            style={{ textAlign: 'center', fontSize: 18 }}
+                          >
+                            Saving Account
+                          </h2>
+                        </div>
+                      ))}
+                  </div>
+                </div>
               </div>
-              <div style={{ flex: 1 }}>
-                {isClient &&
-                  (isLoading ? (
-                    <div className="w-1/2 pr-4">
-                      <LottieView
-                        animationData={animationData}
-                        loopingActive={false}
-                      />
-                    </div>
-                  ) : (
-                    <div>
-                      <ColumnGraph
-                        data={savingAccountData}
-                        IncomeColor="#8a2be2"
-                        OutcomeColor="#3cb371"
-                      />
-                      <h2
-                        className="title-text"
-                        style={{ textAlign: 'center', fontSize: 18 }}
-                      >
-                        Saving Account
-                      </h2>
-                    </div>
-                  ))}
+
+              <input
+                type="radio"
+                name="my_tabs_2"
+                role="tab"
+                className="tab"
+                id="tab2"
+                aria-label="Tab 2"
+                checked={selectedTab === 'tab2'}
+                onChange={handleTabChange}
+              />
+              <div
+                role="tabpanel"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                aria-labelledby="tab2"
+                style={{ display: selectedTab === 'tab2' ? 'flex' : 'none' }}
+              >
+                {/* Tab content 2 */}
+              </div>
+
+              <input
+                type="radio"
+                name="my_tabs_2"
+                role="tab"
+                className="tab"
+                id="tab3"
+                aria-label="Tab 3"
+                checked={selectedTab === 'tab3'}
+                onChange={handleTabChange}
+              />
+              <div
+                role="tabpanel"
+                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                aria-labelledby="tab3"
+                style={{ display: selectedTab === 'tab3' ? 'flex' : 'none' }}
+              >
+                {/* Tab content 3 */}
               </div>
             </div>
           </div>
