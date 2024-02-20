@@ -1,14 +1,19 @@
 'use client'
 import LeftBar from '@/components/leftbar'
 import NavBar from '@/components/navbar'
+import AccountCard from '../../components/cards/accountCard'
 import { useSharedState } from '@/global/sharedStates'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import ColumnGraph from '@/components/columnGraph'
 
 const Analytics = () => {
-  const { accounts, setAccounts, darktheme, setDarktheme } = useSharedState()
+  const [isClient, setIsClient] = useState(false)
 
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', backgroundColor: 'white' }}>
       {/* LEFT  */}
       <div
         style={{
@@ -28,10 +33,34 @@ const Analytics = () => {
         }}
       >
         <NavBar />
-        <div
-          className="drawer-content flex flex-col items-center justify-center"
-          style={{ backgroundColor: darktheme ? 'white' : 'black' }}
-        ></div>
+        <div style={{ padding: 20 }}>
+          <div
+            style={{
+              flex: 1,
+              //borderWidth: 1,
+              //borderColor: 'gray',
+              borderRadius: 20,
+              paddingLeft: 20,
+              paddingRight: 20,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <h2
+                style={{
+                  flex: 1,
+                  textAlign: 'left',
+                  fontSize: 23,
+                  padding: 10,
+                }}
+              >
+                Account Details
+              </h2>
+            </div>
+            <div>{isClient && <ColumnGraph />}</div>
+          </div>
+        </div>
       </div>
     </div>
   )

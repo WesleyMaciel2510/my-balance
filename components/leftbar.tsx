@@ -91,7 +91,7 @@ const LeftBar = () => {
         <IconAndLabel
           icon={faLock}
           label={'Change\n Password'}
-          navigateTo={'/dashboard'}
+          navigateTo={'/forgot-password'}
         />
         <div style={{ position: 'fixed', bottom: 0, width: '15%' }}>
           <IconAndLabel
