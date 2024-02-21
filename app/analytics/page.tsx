@@ -235,28 +235,30 @@ const Analytics = () => {
                   }}
                 >
                   <div style={{ flex: 1 }}>
-                    <PieChartComponent data={checkingAccountExpenses} />
                     <h2
                       className="title-text"
                       style={{
-                        textAlign: 'end',
+                        textAlign: 'start',
                         fontSize: 18,
+                        paddingLeft: 80,
                       }}
                     >
                       Checking Account
                     </h2>
+                    <PieChartComponent data={checkingAccountExpenses} />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <PieChartComponent data={savingAccountExpenses} />
                     <h2
                       className="title-text"
                       style={{
                         textAlign: 'center',
                         fontSize: 18,
+                        paddingRight: 70,
                       }}
                     >
                       Saving Account
                     </h2>
+                    <PieChartComponent data={savingAccountExpenses} />
                   </div>
                 </div>
               </div>
