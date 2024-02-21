@@ -24,6 +24,7 @@ const PieChartComponent: React.FC<PieChartComponentProps> = ({ data }) => {
           labelLine={true}
           outerRadius={80}
           fill="#8884d8"
+          nameKey="Month"
           dataKey="Outcome"
         >
           {data.map((entry, index) => (
