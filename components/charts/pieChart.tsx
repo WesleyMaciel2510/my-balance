@@ -48,6 +48,7 @@ const PieChartComponent: React.FC<PieChartComponentProps> = ({ data }) => {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
+          padding: 20,
         }}
       >
         {data.map((entry, index) => {
@@ -61,8 +62,6 @@ const PieChartComponent: React.FC<PieChartComponentProps> = ({ data }) => {
                 marginBottom: '10px',
                 width: '33%',
                 borderRadius: '5px',
-                paddingLeft: 10,
-                paddingRight: 10,
               }}
             >
               <div
