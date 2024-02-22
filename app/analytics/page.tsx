@@ -234,7 +234,7 @@ const Analytics = () => {
                     flexDirection: 'row',
                   }}
                 >
-                  <div style={{ flex: 1 }}>
+                  <div style={{ flex: 1, paddingLeft: 20, paddingRight: 20 }}>
                     <h2
                       className="title-text"
                       style={{
