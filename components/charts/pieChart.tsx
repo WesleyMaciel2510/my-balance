@@ -11,7 +11,14 @@ interface PieChartComponentProps {
   data: GraphData[]
 }
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
+const COLORS = [
+  '#2196F3',
+  '#FFC107',
+  '#0edd1e',
+  '#9C27B0',
+  '#ff001e',
+  '#202b39',
+]
 
 const PieChartComponent: React.FC<PieChartComponentProps> = ({ data }) => {
   const total = data.reduce((prev, curr) => prev + (curr.Outcome || 0), 0)
@@ -71,8 +78,6 @@ const PieChartComponent: React.FC<PieChartComponentProps> = ({ data }) => {
                   backgroundColor: COLORS[index % COLORS.length],
                   marginLeft: '5px',
                   marginRight: '5px',
-                  borderWidth: 1,
-                  borderColor: 'gray',
                 }}
               />
               <div>{`${entry.Month}: ${percent}%`}</div>
