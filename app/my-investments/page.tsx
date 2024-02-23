@@ -6,6 +6,7 @@ import BorderedTab from '@/components/tabs/borderedTab'
 import Performance from './performance.json'
 import InvestmentLineChart from '@/components/charts/lineChart'
 import './styles.css'
+import StatsAndImage from '@/components/stats/statsAndImage'
 
 const MyInvestments = () => {
   const holdings = ['stocks', 'bonds', 'crypto', 'realEstate', 'etfs']
@@ -54,6 +55,9 @@ const MyInvestments = () => {
             <h2 className="title-text" style={{ color: '#336699' }}>
               My investments
             </h2>
+          </div>
+          <div style={{ flex: 1 }}>
+            <StatsAndImage />
           </div>
           <div
             style={{
