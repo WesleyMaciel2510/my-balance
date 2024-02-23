@@ -2,20 +2,25 @@
 import LeftBar from '@/components/bars/leftbar'
 import Image from 'next/image'
 import profileImage from '../../assets/profile.jpg'
-//import LottieView from '@/components/lottieView'
 import NavBar from '@/components/bars/navbar'
 import React, { useState } from 'react'
-import MobileMockup from '@/components/mobileMockup'
 import { useRouter } from 'next/navigation'
 import { sendDataToServer } from '@/services'
 import SimpleInput from '@/components/input/simpleInput'
+import { useSharedState } from '../../global/sharedStates'
 
 const Profile = () => {
+  const {
+    name,
+    setName,
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    email,
+    setEmail,
+  } = useSharedState()
   const animationData = require('../../assets/world.json')
-  const [name, setName] = useState('Wesley Franco Maciel')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [email, setEmail] = useState('wesleymaciel2500@gmail.com')
   const router = useRouter()
 
   const handleSubmit = async (e: any) => {

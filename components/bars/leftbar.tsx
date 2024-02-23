@@ -9,7 +9,6 @@ import {
   faCircleHalfStroke,
   faLock,
   faRightFromBracket,
-  faAddressCard,
   faUser,
   faRotate,
 } from '@fortawesome/free-solid-svg-icons'
@@ -64,11 +63,6 @@ const LeftBar = () => {
           icon={faIdCard}
           label={'My Accounts'}
           navigateTo={'/my-accounts'}
-        />
-        <IconAndLabel
-          icon={faRotate}
-          label={'Open Finance'}
-          navigateTo={'/open-finance'}
         />
         <IconAndLabel
           icon={faCircleHalfStroke}

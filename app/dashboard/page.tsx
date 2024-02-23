@@ -1,8 +1,12 @@
 'use client'
 import NavBar from '../../components/bars/navbar'
 import LeftBar from '../../components/bars/leftbar'
+import { useSharedState } from '@/global/sharedStates'
 
 const DashboardPage = () => {
+  const { name } = useSharedState()
+  const nameParts = name.split(' ')
+  const firstName = nameParts[0]
   return (
     <div style={{ display: 'flex' }}>
       {/* LEFT  */}
@@ -25,6 +29,18 @@ const DashboardPage = () => {
         }}
       >
         <NavBar />
+        <div
+          style={{
+            flex: 1,
+            alignSelf: 'flex-start',
+            paddingTop: 30,
+            paddingLeft: 50,
+          }}
+        >
+          <h2 className="title-text" style={{ color: '#336699' }}>
+            Hello, {firstName}!
+          </h2>
+        </div>
       </div>
     </div>
   )

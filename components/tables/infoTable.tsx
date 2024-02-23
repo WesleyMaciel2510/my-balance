@@ -60,7 +60,12 @@ const TableInfo = () => {
         }}
       >
         <div>
-          <h2 style={{ textAlign: 'left', fontSize: 25 }}>Account Details</h2>
+          <h2
+            className="title-text"
+            style={{ textAlign: 'left', color: '#336699' }}
+          >
+            Account Details
+          </h2>
         </div>
 
         <div>

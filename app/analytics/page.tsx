@@ -71,15 +71,7 @@ const Analytics = () => {
             }}
           >
             <div>
-              <h2
-                className="title-text"
-                style={{
-                  flex: 1,
-                  textAlign: 'left',
-                  fontSize: 23,
-                  paddingBottom: 15,
-                }}
-              >
+              <h2 className="title-text" style={{ color: '#336699' }}>
                 Analytics
               </h2>
             </div>
@@ -119,8 +111,12 @@ const Analytics = () => {
                             OutcomeColor="#FFD700"
                           />
                           <h2
-                            className="title-text"
-                            style={{ textAlign: 'center', fontSize: 18 }}
+                            style={{
+                              textAlign: 'center',
+                              fontSize: 18,
+                              fontWeight: 'bold',
+                              color: '#336699',
+                            }}
                           >
                             Checking Account
                           </h2>
@@ -137,17 +133,18 @@ const Analytics = () => {
                           />
                         </div>
                       ) : (
-                        <div className="w-1/2">
+                        <div className="w-1/2" style={{ minWidth: '80vh' }}>
                           <BarChartComponent
                             data={savingAccountData}
                             IncomeColor="#8a2be2"
                             OutcomeColor="#3cb371"
                           />
                           <h2
-                            className="title-text"
                             style={{
-                              textAlign: 'end',
+                              textAlign: 'center',
                               fontSize: 18,
+                              fontWeight: 'bold',
+                              color: '#336699',
                             }}
                           >
                             Saving Account
@@ -183,7 +180,7 @@ const Analytics = () => {
                       fillColor="#8a2be2"
                     />
                     <h2
-                      className="title-text"
+                      className="text-title"
                       style={{
                         textAlign: 'center',
                         fontSize: 18,
@@ -199,7 +196,7 @@ const Analytics = () => {
                       fillColor="#3cb371"
                     />
                     <h2
-                      className="title-text"
+                      className="text-title"
                       style={{
                         textAlign: 'center',
                         fontSize: 18,
@@ -236,7 +233,7 @@ const Analytics = () => {
                 >
                   <div style={{ flex: 1, paddingLeft: 20, paddingRight: 20 }}>
                     <h2
-                      className="title-text"
+                      className="text-title"
                       style={{
                         textAlign: 'start',
                         fontSize: 18,
@@ -249,7 +246,7 @@ const Analytics = () => {
                   </div>
                   <div style={{ flex: 1 }}>
                     <h2
-                      className="title-text"
+                      className="text-title"
                       style={{
                         textAlign: 'center',
                         fontSize: 18,

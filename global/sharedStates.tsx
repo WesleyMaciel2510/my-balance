@@ -20,10 +20,22 @@ export const useStateVariables = () => {
       balance: 10000 - 2000,
     },
   ])
+  const [name, setName] = useState('Wesley Franco Maciel')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [email, setEmail] = useState('wesleymaciel2500@gmail.com')
   const [darktheme, setDarktheme] = useState(true)
   return {
     accounts,
     setAccounts,
+    name,
+    setName,
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    email,
+    setEmail,
     darktheme,
     setDarktheme,
   }

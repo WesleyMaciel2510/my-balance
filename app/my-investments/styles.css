@@ -1,0 +1,48 @@
+.center {
+  text-align: center;
+}
+.pd-10 {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.value-show {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.blue-text {
+  color: #336699;
+  font-weight: bold;
+}
+
+.income {
+  color: #157221;
+  font-weight: bold;
+}
+
+.outcome {
+  color: #f52525;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.left-column,
+.center-column,
+.right-column {
+  flex: 1;
+}
+
+.right-column {
+  text-align: right;
+}

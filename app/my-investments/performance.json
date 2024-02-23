@@ -1,0 +1,42 @@
+{
+  "stocks": [
+    { "Month": "Jan", "Performance": 4521.35 },
+    { "Month": "Feb", "Performance": -1023.8 },
+    { "Month": "Mar", "Performance": 2189.52 },
+    { "Month": "Apr", "Performance": 516.08 },
+    { "Month": "May", "Performance": -876.59 },
+    { "Month": "Jun", "Performance": 1203.7 }
+  ],
+  "bonds": [
+    { "Month": "Jan", "Performance": 810.2 },
+    { "Month": "Feb", "Performance": 370.46 },
+    { "Month": "Mar", "Performance": 1025.7 },
+    { "Month": "Apr", "Performance": 690.58 },
+    { "Month": "May", "Performance": 420.19 },
+    { "Month": "Jun", "Performance": 715.37 }
+  ],
+  "crypto": [
+    { "Month": "Jan", "Performance": -2578.33 },
+    { "Month": "Feb", "Performance": 3125.91 },
+    { "Month": "Mar", "Performance": -1589.24 },
+    { "Month": "Apr", "Performance": 2108.75 },
+    { "Month": "May", "Performance": -1098.46 },
+    { "Month": "Jun", "Performance": 1854.2 }
+  ],
+  "realEstate": [
+    { "Month": "Jan", "Performance": 1056.79 },
+    { "Month": "Feb", "Performance": 507.35 },
+    { "Month": "Mar", "Performance": 1532.69 },
+    { "Month": "Apr", "Performance": 832.02 },
+    { "Month": "May", "Performance": 1205.88 },
+    { "Month": "Jun", "Performance": 950.3 }
+  ],
+  "etfs": [
+    { "Month": "Jan", "Performance": 1258.04 },
+    { "Month": "Feb", "Performance": 731.1 },
+    { "Month": "Mar", "Performance": 1854.29 },
+    { "Month": "Apr", "Performance": 1023.56 },
+    { "Month": "May", "Performance": 697.42 },
+    { "Month": "Jun", "Performance": 1416.8 }
+  ]
+}

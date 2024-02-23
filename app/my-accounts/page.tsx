@@ -1,9 +1,9 @@
 'use client'
-import { useSharedState } from '../../global/sharedStates'
 import NavBar from '../../components/bars/navbar'
 import AccountCard from '../../components/cards/accountCard'
 import TableInfo from '../../components/tables/infoTable'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useSharedState } from '../../global/sharedStates'
 import {
   faCircleArrowLeft,
   faCircleArrowRight,

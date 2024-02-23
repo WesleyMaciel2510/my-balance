@@ -27,7 +27,7 @@ const PieChartComponent: React.FC<PieChartComponentProps> = ({ data }) => {
     <div
       style={{
         alignContent: 'center',
-        background: '#faefd9',
+        background: '#dcdfe9',
         borderRadius: 30,
         borderWidth: 0.5,
         borderColor: 'gray',

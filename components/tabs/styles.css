@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-tab {
+  background-color: #dcdfe9;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 175vh;
+}
+
+.input-tab {
+  padding-left: 30;
+  padding-right: 30;
+}
