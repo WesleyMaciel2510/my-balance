@@ -101,7 +101,7 @@ const AccountPage = () => {
 
       {/* RIGHT */}
       <div
-        className="bg-color"
+        className="primary"
         style={{
           flex: 5,
           display: 'flex',
@@ -109,7 +109,7 @@ const AccountPage = () => {
         }}
       >
         <NavBar />
-        <div className="drawer-content flex flex-col items-center justify-center bg-color">
+        <div className="drawer-content flex flex-col items-center justify-center primary">
           <div
             style={{
               display: 'flex',

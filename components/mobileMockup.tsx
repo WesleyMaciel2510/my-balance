@@ -9,8 +9,8 @@ const MobileMockup = () => {
         <Image
           alt="Mobile Mockup"
           src={require('../assets/mockup-mobile.png')}
-          width={200}
-          height={150}
+          width={180}
+          height={130}
         />
       </div>
     </div>

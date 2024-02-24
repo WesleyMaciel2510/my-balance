@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import profileImage from '../../assets/profile.jpg'
 import Link from 'next/link'
+import ThemeColor from '../theme/dropDownThemeColor'
 
 const NavBar = () => {
   return (
@@ -11,12 +12,14 @@ const NavBar = () => {
         display: 'flex',
         justifyContent: 'flex-end',
         backgroundColor: '#337ab7',
-        borderBottomStyle: 'double', // Use double-dash border style
-        borderBottomWidth: '3px', // Optional: You can adjust the width of the border
-        borderBottomColor: 'white', // Optional: You can adjust the color of the border
+        borderBottomStyle: 'double',
+        borderBottomWidth: '3px',
+        borderBottomColor: 'white',
       }}
     >
       <div className="navbar-end">
+        <ThemeColor />
+
         <button className="btn btn-ghost btn-circle ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +81,7 @@ const NavBar = () => {
               </a>
             </li>
             <li>
-              <a>Settings</a>
+              <Link href="/forgot-password">Change Password</Link>
             </li>
             <li>
               <Link href="/">Logout</Link>

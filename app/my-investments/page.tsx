@@ -31,7 +31,7 @@ const MyInvestments = () => {
       </div>
       {/* RIGHT */}
       <div
-        className="bg-color"
+        className="primary"
         style={{
           flex: 5,
           display: 'flex',
@@ -41,10 +41,11 @@ const MyInvestments = () => {
         <NavBar />
 
         <div
-          className="drawer-content flex flex-col items-center justify-center bg-color"
+          className="drawer-content flex flex-col items-center justify-center primary"
           style={{ display: 'flex', flexDirection: 'column' }}
         >
           <div
+            className="primary"
             style={{
               flex: 1,
               alignSelf: 'flex-start',
@@ -52,9 +53,7 @@ const MyInvestments = () => {
               paddingLeft: 50,
             }}
           >
-            <h2 className="title-text" style={{ color: '#336699' }}>
-              My investments
-            </h2>
+            <h2 className="title-text text-primary">My investments</h2>
           </div>
           <div style={{ flex: 1 }}>
             <StatsAndImage />
@@ -103,7 +102,7 @@ const MyInvestments = () => {
                       className=" value-show center"
                       style={{ color: '#c41414' }}
                     >
-                      + $4.791
+                      - $4.791
                     </h1>
                   </div>
                 </div>

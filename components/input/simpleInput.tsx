@@ -25,7 +25,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
       <div style={{ paddingBottom: 15 }}>
         <input
           type={type}
-          className="pd px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
+          className="pd px-4 py-2 w-2/3 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
           placeholder={value}
           value={value}
           onChange={handleChange}

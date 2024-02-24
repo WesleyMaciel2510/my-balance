@@ -24,7 +24,6 @@ export const useStateVariables = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [email, setEmail] = useState('wesleymaciel2500@gmail.com')
-  const [darktheme, setDarktheme] = useState(true)
   return {
     accounts,
     setAccounts,
@@ -36,8 +35,6 @@ export const useStateVariables = () => {
     setConfirmPassword,
     email,
     setEmail,
-    darktheme,
-    setDarktheme,
   }
 }
 

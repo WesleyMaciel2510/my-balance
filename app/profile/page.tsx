@@ -90,7 +90,7 @@ const Profile = () => {
               flex: 1,
               flexDirection: 'column',
               minHeight: '70vh',
-              minWidth: '95%',
+              minWidth: '80vh',
             }}
           >
             <div
@@ -114,7 +114,7 @@ const Profile = () => {
 
             <div
               className="mb-4 "
-              style={{ borderWidth: 1, borderColor: 'white', width: '27%' }}
+              style={{ borderWidth: 1, borderColor: 'white', width: '60vh' }}
             />
             <SimpleInput
               label="Name"

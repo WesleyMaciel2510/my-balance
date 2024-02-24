@@ -2,8 +2,9 @@
 import NavBar from '../../components/bars/navbar'
 import LeftBar from '../../components/bars/leftbar'
 import { useSharedState } from '@/global/sharedStates'
+import HeadingHome from '@/components/cards/headingHome'
 
-const DashboardPage = () => {
+const HomePage = () => {
   const { name } = useSharedState()
   const nameParts = name.split(' ')
   const firstName = nameParts[0]
@@ -21,7 +22,7 @@ const DashboardPage = () => {
       </div>
       {/* RIGHT */}
       <div
-        className="bg-color"
+        className="primary"
         style={{
           flex: 5,
           display: 'flex',
@@ -32,12 +33,13 @@ const DashboardPage = () => {
         <div
           style={{
             flex: 1,
-            alignSelf: 'flex-start',
             paddingTop: 30,
             paddingLeft: 50,
           }}
         >
-          <h2 className="title-text" style={{ color: '#336699' }}>
+          <h2
+            className="title-text text-primary" /*  style={{ color: '#336699' }} */
+          >
             Hello, {firstName}!
           </h2>
         </div>
@@ -46,4 +48,4 @@ const DashboardPage = () => {
   )
 }
 
-export default DashboardPage
+export default HomePage

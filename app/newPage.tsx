@@ -1,12 +1,9 @@
 'use client'
 import LeftBar from '@/components/bars/leftbar'
 import NavBar from '@/components/bars/navbar'
-import { useSharedState } from '@/global/sharedStates'
 import React from 'react'
 
 const Analytics = () => {
-  const { accounts, setAccounts, darktheme, setDarktheme } = useSharedState()
-
   return (
     <div style={{ display: 'flex' }}>
       {/* LEFT  */}
@@ -21,7 +18,7 @@ const Analytics = () => {
       </div>
       {/* RIGHT */}
       <div
-        className="bg-color"
+        className="primary"
         style={{
           flex: 5,
           display: 'flex',
@@ -29,10 +26,7 @@ const Analytics = () => {
         }}
       >
         <NavBar />
-        <div
-          className="drawer-content flex flex-col items-center justify-center"
-          style={{ backgroundColor: darktheme ? 'white' : 'black' }}
-        ></div>
+        <div className="drawer-content flex flex-col items-center justify-center bg-primary"></div>
       </div>
     </div>
   )

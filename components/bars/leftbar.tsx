@@ -16,7 +16,6 @@ import { useSharedState } from '@/global/sharedStates'
 import { useRouter } from 'next/navigation'
 
 const LeftBar = () => {
-  const { darktheme, setDarktheme } = useSharedState()
   const router = useRouter()
   return (
     <div
@@ -48,7 +47,7 @@ const LeftBar = () => {
         }}
       />
       <div>
-        <IconAndLabel icon={faHouse} label={'Home'} navigateTo={'/dashboard'} />
+        <IconAndLabel icon={faHouse} label={'Home'} navigateTo={'/home'} />
         <IconAndLabel
           icon={faChartSimple}
           label={'Analytics'}
@@ -64,11 +63,6 @@ const LeftBar = () => {
           label={'My Accounts'}
           navigateTo={'/my-accounts'}
         />
-        <IconAndLabel
-          icon={faCircleHalfStroke}
-          label={'Dark Theme'}
-          navigateTo={''}
-        />
         <div
           style={{
             borderStyle: 'double',
@@ -77,11 +71,6 @@ const LeftBar = () => {
           }}
         />
         <IconAndLabel icon={faUser} label={'Profile'} navigateTo={'/profile'} />
-        <IconAndLabel
-          icon={faGear}
-          label={'Settings'}
-          navigateTo={'/dashboard'}
-        />
         <IconAndLabel
           icon={faLock}
           label={'Change\n Password'}

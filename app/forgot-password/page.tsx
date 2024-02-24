@@ -46,7 +46,7 @@ const ForgotPasswordPage = () => {
           }}
         >
           <h1 className="text-2xl font-bold text-left mb-4 text-white">
-            Register Your User
+            Recover Your Password
           </h1>
           <div className="mb-4">
             <label
@@ -85,7 +85,7 @@ const ForgotPasswordPage = () => {
               type="submit"
               className="inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-opacity-50"
             >
-              Register
+              Send
             </button>
           </div>
         </form>

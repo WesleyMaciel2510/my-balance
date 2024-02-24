@@ -60,10 +60,7 @@ const TableInfo = () => {
         }}
       >
         <div>
-          <h2
-            className="title-text"
-            style={{ textAlign: 'left', color: '#336699' }}
-          >
+          <h2 className="title-text text-primary" style={{ textAlign: 'left' }}>
             Account Details
           </h2>
         </div>

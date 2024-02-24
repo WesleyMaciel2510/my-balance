@@ -6,6 +6,7 @@ import LottieView from '../components/lottieView'
 import { useRouter } from 'next/navigation'
 import { setLogin } from '../services/index'
 import Footer from '@/components/footer/footer'
+import MobileMockup from '@/components/mobileMockup'
 
 export default function Home() {
   const animationData = require('../assets/login.json')
@@ -18,7 +19,6 @@ export default function Home() {
     e.preventDefault()
 
     if (email.trim() === '' || password.trim() === '') {
-      // Handle empty fields (display error message or highlight fields)
       alert('Please fill in both username and password.')
       return
     } else {
@@ -27,7 +27,7 @@ export default function Home() {
       const result = await setLogin(email, password)
       console.log('@@@@ result', result)
       if (result) {
-        alert('Login Realizado.'), router.push('/dashboard')
+        alert('Login Realizado.'), router.push('/home')
       } else {
         alert(
           `Erro no Login!\n Verifique as credenciais inseridas ou redefina sua senha.`,
@@ -45,7 +45,7 @@ export default function Home() {
         <div className="w-1/2 pr-4">
           <LottieView animationData={animationData} loopingActive={true} />
         </div>
-        <div className="w-full">
+        <div className="w-1/3">
           <form
             className="shadow p-8 rounded-md"
             onSubmit={handleSubmit}
@@ -91,15 +91,37 @@ export default function Home() {
               />
             </div>
             <div className="flex justify-between text-white">
-              <Link href="/sign-up">Sign Up</Link>
-              <Link style={{ textAlign: 'right' }} href="/forgot-password">
+              <Link
+                href="/sign-up"
+                style={{ cursor: 'pointer' }}
+                onMouseEnter={(e) =>
+                  ((e.target as HTMLElement).style.textDecoration = 'underline')
+                }
+                onMouseLeave={(e) =>
+                  ((e.target as HTMLElement).style.textDecoration = 'none')
+                }
+              >
+                Sign Up
+              </Link>
+              <Link
+                href="/forgot-password"
+                style={{ textAlign: 'right', cursor: 'pointer' }}
+                onMouseEnter={(e) =>
+                  ((e.target as HTMLElement).style.textDecoration = 'underline')
+                }
+                onMouseLeave={(e) =>
+                  ((e.target as HTMLElement).style.textDecoration = 'none')
+                }
+              >
                 Forgot My Password
               </Link>
             </div>
-            <div className="flex justify-center">
+
+            <div className="flex justify-center" style={{ marginTop: 20 }}>
               <button
                 type="submit"
-                className="inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-opacity-50"
+                className=" w-1/2 inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-opacity-50"
+                style={{ justifyContent: 'center' }}
               >
                 Login
               </button>

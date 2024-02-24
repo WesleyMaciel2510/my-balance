@@ -42,7 +42,7 @@ const Analytics = () => {
       </div>
       {/* RIGHT */}
       <div
-        className="bg-color"
+        className="primary"
         style={{
           flex: 5,
           display: 'flex',
@@ -71,16 +71,14 @@ const Analytics = () => {
             }}
           >
             <div>
-              <h2 className="title-text" style={{ color: '#336699' }}>
-                Analytics
-              </h2>
+              <h2 className="title-text text-primary">Analytics</h2>
             </div>
             <div role="tablist" className="tabs tabs-lifted">
               <input
                 type="radio"
                 name="my_tabs_2"
                 role="tab"
-                className="tab"
+                className="tab text-primary"
                 id="tab1"
                 aria-label="BarChart"
                 checked={selectedTab === 'tab1'}
@@ -88,7 +86,7 @@ const Analytics = () => {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                className="tab-content border-base-300 rounded-box p-6"
                 aria-labelledby="tab1"
                 style={{ display: selectedTab === 'tab1' ? 'flex' : 'none' }}
               >
@@ -159,7 +157,7 @@ const Analytics = () => {
                 type="radio"
                 name="my_tabs_2"
                 role="tab"
-                className="tab"
+                className="tab text-primary"
                 id="tab2"
                 aria-label="AreaChart"
                 checked={selectedTab === 'tab2'}
@@ -167,7 +165,7 @@ const Analytics = () => {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                className="tab-content border-base-300 rounded-box p-6"
                 aria-labelledby="AreaChart"
                 style={{ display: selectedTab === 'tab2' ? 'flex' : 'none' }}
               >
@@ -212,7 +210,7 @@ const Analytics = () => {
                 type="radio"
                 name="my_tabs_2"
                 role="tab"
-                className="tab"
+                className="tab text-primary"
                 id="tab3"
                 aria-label="PieChart"
                 checked={selectedTab === 'tab3'}
@@ -220,7 +218,7 @@ const Analytics = () => {
               />
               <div
                 role="tabpanel"
-                className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                className="tab-content border-base-300 rounded-box p-6"
                 aria-labelledby="PieChart"
                 style={{ display: selectedTab === 'tab3' ? 'flex' : 'none' }}
               >
