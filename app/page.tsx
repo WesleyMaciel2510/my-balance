@@ -60,35 +60,52 @@ export default function Home() {
             </h1>
             <div className="mb-4">
               <label
+                className="input input-bordered flex items-center gap-2"
                 htmlFor="email"
-                className="block text-sm font-medium mb-1 color text-white"
               >
-                Email
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="w-4 h-4 opacity-70"
+                >
+                  <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                  <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                </svg>
+                <input
+                  type="text"
+                  className="grow"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </label>
-              <input
-                type="text"
-                id="email"
-                className="block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
-                placeholder="Enter your Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
             </div>
             <div className="mb-6">
               <label
+                className="input input-bordered flex items-center gap-2"
                 htmlFor="password"
-                className="block text-sm font-medium mb-1 text-white"
               >
-                Password
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="w-4 h-4 opacity-70"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <input
+                  type="password"
+                  className="grow"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </label>
-              <input
-                type="password"
-                id="password"
-                className="block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-primary focus:ring-opacity-50"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
             </div>
             <div className="flex justify-between text-white">
               <Link
