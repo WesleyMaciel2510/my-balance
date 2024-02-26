@@ -2,10 +2,11 @@
 import NavBar from '../../components/bars/navbar'
 import LeftBar from '../../components/bars/leftbar'
 import { useSharedState } from '@/global/sharedStates'
-import HeadingHome from '@/components/cards/headingHome'
+import InfoText from '@/components/bars/infoTextBar'
+import HomeCard from '@/components/cards/homeCard'
 
 const HomePage = () => {
-  const { name } = useSharedState()
+  const { name, accounts } = useSharedState()
   const nameParts = name.split(' ')
   const firstName = nameParts[0]
   return (
@@ -37,11 +38,16 @@ const HomePage = () => {
             paddingLeft: 50,
           }}
         >
-          <h2
-            className="title-text text-primary" /*  style={{ color: '#336699' }} */
-          >
-            Hello, {firstName}!
-          </h2>
+          <h2 className="title-text text-primary">Hello, {firstName}!</h2>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <div style={{ flex: 1 }}>
+              <HomeCard index={0} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <HomeCard index={1} />
+            </div>
+          </div>
+          <InfoText />
         </div>
       </div>
     </div>

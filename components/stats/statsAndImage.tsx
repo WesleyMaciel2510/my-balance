@@ -58,7 +58,7 @@ const StatsAndImage = () => {
         </div>
         <div className="stat-value">86%</div>
         <div className="stat-title">Investment Goals Reached</div>
-        <div className="stat-desc text-secondary">31 goals remaining</div>
+        <div className="stat-desc text-secondary">3 goals remaining</div>
       </div>
     </div>
   )

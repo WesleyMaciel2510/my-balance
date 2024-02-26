@@ -13,7 +13,7 @@ import LeftBar from '../../components/bars/leftbar'
 import Footer from '@/components/footer/footer'
 
 const AccountPage = () => {
-  const { accounts, setAccounts, darktheme, setDarktheme } = useSharedState()
+  const { accounts, setAccounts } = useSharedState()
   const [transferAmount, setTransferAmount] = useState(0)
 
   const addAccount = () => {
@@ -31,7 +31,6 @@ const AccountPage = () => {
   }
   const updateBalances = (side: string) => {
     console.log('side = ', side)
-    console.log('transferAmount = ', transferAmount)
 
     //validate 'transferAmount' to not be bigger then Total in the selected account
     let updatedAccounts: SetStateAction<
